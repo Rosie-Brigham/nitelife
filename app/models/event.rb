@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  # belongs_to :user
+  belongs_to :user
 
   validates :name, presence: true
   validates :genre, presence: true
