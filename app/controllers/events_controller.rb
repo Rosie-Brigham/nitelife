@@ -5,17 +5,13 @@ class EventsController < ApplicationController
     end
 
     def create
-      # render plain: params[:event].inspect
       @event = Event.new(event_params)
-
-      @event.save
-      redirect_to @event
-        # if @event.valid?
-        #   @event.save
-        #   redirect_to @event
-        # else
-        #   render :new
-        # end
+        if @event.valid?
+          @event.save
+          redirect_to @event
+        else
+          render :new
+        end
     end
     
     def show
@@ -33,6 +29,15 @@ class EventsController < ApplicationController
     def destroy
       @event = Event.find(params[:id])
       @event.destroy
+    end
+
+    def update
+      @event = Event.find(params[:id])
+        if @event.update(event_params)
+          redirect_to @event
+        else
+            render 'edit'
+        end
     end
 
     private
