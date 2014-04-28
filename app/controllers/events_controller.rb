@@ -6,6 +6,7 @@ before_action :authenticate_user!, except:[:index, :show]
 
     def create
       @event = Event.new(event_params)
+      @event.user_id = current_user.id
         if @event.valid?
           @event.save
           redirect_to @event
@@ -24,6 +25,12 @@ before_action :authenticate_user!, except:[:index, :show]
 
     def edit
       @event = Event.find(params[:id])
+
+      if current_user.id != @event.user_id
+        redirect_to event_path(@event), notice: "I'm sorry, you don't have permission to edit that event"
+      else
+        @event = Event.find(params[:id])
+      end
     end
 
     def destroy

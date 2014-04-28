@@ -2,14 +2,18 @@ require 'spec_helper'
 
 describe EventsController do
 
+let(:user) {FactoryGirl.create(:user)}
+let(:event) {FactoryGirl.create(:event, user: user)}
+  
+
   it "has a show action, to show a new event" do
-    @event = FactoryGirl.create(:event)
-    get :show, id: @event.id
+    # @event = FactoryGirl.create(:event)
+    get :show, id: event.id
     response.should be_ok
   end
 
   before do
-    sign_in FactoryGirl.create(:user)
+    sign_in user
   end
 
   describe "POST#create" do
@@ -27,7 +31,7 @@ describe EventsController do
           {event: {name: "", genre: "", artist: "", date: "", time: "", venue: ""} }
         end
 
-      it "render the form again" do
+      it "renders the form again" do
         post :create, invalid_params
         response.should render_template(:new)
       end
@@ -75,6 +79,19 @@ describe EventsController do
       end
 
     end
+  end
+
+  describe "When logged in #edit" do
+    let(:different_event) do
+      FactoryGirl.create(:event)
+    end
+
+    it 'does not let you edit events that are not yours' do
+        get :edit, id: different_event.id
+        response.should redirect_to event_path(different_event)
+
+    end
+
   end
 
 
