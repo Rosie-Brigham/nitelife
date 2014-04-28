@@ -2,23 +2,34 @@ require 'spec_helper'
 
 describe EventsController do
 
-  
-  # add sign in thing here...
-
-  it "should create a new event" do
-
+  it "has a show action, to show a new event" do
+    @event = FactoryGirl.create(:event)
+    get :show, id: @event.id
+    response.should be_ok
   end
 
-  it "has a show action, to show a new event" do
-
+  before do
+    sign_in FactoryGirl.create(:user)
   end
 
   describe "POST#create" do
+
     describe "with valid params" do
       it "save a record" do
         expect {
           post :create, event: {name: "FWD", genre: 'bass', artist: 'sophie', date: '10/10/2014', time: '14', venue: "dance tunnel" }
         }.to change{ Event.count }.from(0).to(1)        
+      end
+    end
+
+    describe "with invalid params" do
+      let(:invalid_params) do
+          {event: {name: "", genre: "", artist: "", date: "", time: "", venue: ""} }
+        end
+
+      it "render the form again" do
+        post :create, invalid_params
+        response.should render_template(:new)
       end
     end
   end
@@ -48,7 +59,7 @@ describe EventsController do
     describe 'with invalid params' do
       
       let(:invalid_params) do
-        {event: {name: "", genre: "", artist: "", date: "", time: "", venue: "dance tunnel"} }
+        {event: {name: "", genre: "", artist: "", date: "", time: "", venue: ""} }
       end
 
       it 'does not save a new event record' do

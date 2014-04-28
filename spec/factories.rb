@@ -12,6 +12,4 @@ FactoryGirl.define do
     time '7:30pm'
   end
 
-
-  
 end
