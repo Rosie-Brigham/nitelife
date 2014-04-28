@@ -16,6 +16,7 @@
     </div>
   <% end %>
 
+
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
 
@@ -43,9 +44,9 @@
   <%= f.label :time %><br>
   <%= f.text_field :time %><br>
 
-  <%= f.submit "update" %>
+  <%= f.submit "Update" %>
 
 <% end %>
 
-<% link_to 'Back' events_path %>
+<%= link_to 'Back', events_path %>
 

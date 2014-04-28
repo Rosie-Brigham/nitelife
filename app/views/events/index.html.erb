@@ -3,11 +3,10 @@
 <% @events.each do |event| %>
 
   <div class="event_box">
-    <div><%= event.name %> </div>
-    <%= event.artist %>
+    <div><h2><%= link_to event.name, event_path(event) %></h2> </div>
+    <h3><%= event.artist %></h3>
     <%= event.genre %>
     <%= event.venue %>
-    <div> <%= event.description %> </div>
     <%= event.date %>
     <%= event.time %>
     <span><%= event.url %>  <%= event.email %> </span> 
