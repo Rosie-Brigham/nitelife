@@ -4,16 +4,29 @@
 
 <%= form_for @event, html: {class: "nifty_form"} do |f| %>
 
-
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited
+        this film from being saved:</h2>
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
 
+  <%= f.label :artist %><br>
+  <%= f.text_field :artist %><br>
+  
   <%= f.label :genre %><br>
   <%= f.text_field :genre %><br>
 
-  <%= f.label :artist %><br>
-  <%= f.text_field :artist %><br>
+  <%= f.label :venue %><br>
+  <%= f.text_field :venue %><br>
 
   <%= f.label :description %><br>
   <%= f.text_field :description %><br>
@@ -30,6 +43,9 @@
   <%= f.label :time %><br>
   <%= f.text_field :time %><br>
 
-  <%= f.submit "create" %>
+  <%= f.submit "update" %>
 
 <% end %>
+
+<% link_to 'Back' events_path %>
+

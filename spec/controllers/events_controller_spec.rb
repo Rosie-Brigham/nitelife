@@ -17,7 +17,7 @@ describe EventsController do
     describe "with valid params" do
       it "save a record" do
         expect {
-          post :create, event: {name: "FWD", genre: 'bass', artist: 'sophie', date: '10/10/2014', time: '14' }
+          post :create, event: {name: "FWD", genre: 'bass', artist: 'sophie', date: '10/10/2014', time: '14', venue: "dance tunnel" }
         }.to change{ Event.count }.from(0).to(1)        
       end
     end
@@ -32,7 +32,7 @@ describe EventsController do
       
       it "edits an event" do
 
-        put :update, id: event.id, event: {name: "FWD", genre: 'bass', artist: 'sophie', date: '10/10/2014', time: '14' }
+        put :update, id: event.id, event: {name: "FWD", genre: 'bass', artist: 'sophie', date: '10/10/2014', time: '14', venue: "dance tunnel" }
         event.reload
         event.genre.should eq "bass"
 
@@ -40,7 +40,7 @@ describe EventsController do
 
       it "updates an event" do
         expect {
-          put :update, id: event.id, event: {name: "FWD", genre: 'bass', artist: 'sophie', date: '10/10/2014', time: '14' }
+          put :update, id: event.id, event: {name: "FWD", genre: 'bass', artist: 'sophie', date: '10/10/2014', time: '14', venue: "dance tunnel" }
         }.to_not change { Event.count }
       end
     end
@@ -48,7 +48,7 @@ describe EventsController do
     describe 'with invalid params' do
       
       let(:invalid_params) do
-        {event: {name: "", genre: "", artist: "", date: "", time: ""} }
+        {event: {name: "", genre: "", artist: "", date: "", time: "", venue: "dance tunnel"} }
       end
 
       it 'does not save a new event record' do

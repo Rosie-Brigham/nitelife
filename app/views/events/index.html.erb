@@ -1,9 +1,18 @@
-<h1>Events#index</h1>
+<h1>Listings</h1>
 
 <% @events.each do |event| %>
-<%= event.name %> 
 
-<br>
-
-
+  <div class="event_box">
+    <div><%= event.name %> </div>
+    <%= event.artist %>
+    <%= event.genre %>
+    <%= event.venue %>
+    <div> <%= event.description %> </div>
+    <%= event.date %>
+    <%= event.time %>
+    <span><%= event.url %>  <%= event.email %> </span> 
+  </div>
+  <br>
 <% end %>
+
+<%= link_to 'Add an event', new_event_path %> 
