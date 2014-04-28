@@ -94,5 +94,16 @@ let(:event) {FactoryGirl.create(:event, user: user)}
 
   end
 
+  describe "when an admin" do
+    before do
+      current_user.update_attribute :admin, true
+    end
+
+    it 'allows you to edit things' do
+       put :update, id: event.id, event: {name: "FWD", genre: 'bass', artist: 'sophie', date: '10/10/2014', time: '14', venue: "dance tunnel" }
+        event.reload
+        event.genre.should eq "bass"
+    end
+  end
 
 end

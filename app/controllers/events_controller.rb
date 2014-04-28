@@ -25,11 +25,10 @@ before_action :authenticate_user!, except:[:index, :show]
 
     def edit
       @event = Event.find(params[:id])
-
-      if current_user.id != @event.user_id
-        redirect_to event_path(@event), notice: "I'm sorry, you don't have permission to edit that event"
-      else
+      if current_user.admin || current_user.id == @event.user_id
         @event = Event.find(params[:id])
+      else
+        redirect_to event_path(@event), notice: "I'm sorry, you don't have permission to edit that event"
       end
     end
 
