@@ -18,6 +18,8 @@ NiteLife::Application.routes.draw do
 
   resources :user_events
 
+  resources :selected_events
+
   # Example resource route with options:
   #   resources :products do
   #     member do
