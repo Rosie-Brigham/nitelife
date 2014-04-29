@@ -14,11 +14,14 @@
     <%= @event.date %>
     <%= @event.time %>
     <span><%= @event.url %>  <%= @event.email %> </span> 
+     </div>
+ 
+<% if user_signed_in? %>
+  <h4>Like the look of this event? Add it to your 'Selected Events' feed!!</h4>
+  <%= button_to 'dammthislookscool', selected_events_path(event_id: @event.id) %> 
+  <%= link_to 'Edit event', edit_event_path(@event) %>
+  <%= button_to 'Delete Event', event_path(@event), method: :delete, data: {confirm: 'Are you sure?' } %>
+ <% end %>
 
-    <h4>Like the look of this event? Add it to your 'Selected Events' feed!!</h4>
-    <%= button_to 'dammthislookscool', selected_events_path(event_id: @event.id) %> 
-  </div>
 
 <%= link_to 'Back', events_path %>
-<%= link_to 'Edit event', edit_event_path(@event) %>
-<%= button_to 'Delete Event', event_path(@event), method: :delete, data: {confirm: 'Are you sure?' } %>

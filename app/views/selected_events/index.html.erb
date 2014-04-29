@@ -1,26 +1,30 @@
 <h2>Well aren't these selected_events just the coolest thing</h2>
 
- <div class="event_box">
+<div class="event_box">
 
-
-<% @selected_events.each do |event| %>
-
-<% @event = Event.find(event.id) %>
-<%= @event.artist %>
-    <%= @event.genre %>
-
-    <div class="description">
-      <%= @event.description %>
+  <% if @selected_event_for_user == nil %>
+    <div class="warning">
+       <h4>Oh no! It seems you dont have any selected events, go and find some!!!</h4>
     </div>
+  <% else %>
 
-    <%= @event.venue %>
-    <%= @event.date %>
-    <%= @event.time %>
-    <span><%= @event.url %>  <%= @event.email %> </span> 
+    <% @selected_event_for_user.each do |event| %>
 
-   
+      <% @event = Event.find(event.id) %>
+      <%= @event.artist %>
+      <%= @event.genre %>
+
+      <div class="description">
+        <%= @event.description %>
+      </div>
+
+      <%= @event.venue %>
+      <%= @event.date %>
+      <%= @event.time %>
+      <span><%= @event.url %>  <%= @event.email %> </span> 
   </div>
-<% end %>
+    <% end %>
+  <% end %>
 
 
 
