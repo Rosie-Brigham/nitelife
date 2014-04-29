@@ -11,9 +11,9 @@ class Event < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions =>['name LIKE ? OR genre LIKE ? OR artist LIKE ? OR venue LIKE ?', "%#{search}%", "%#{search}%" , "%#{search}%" , "%#{search}%"] )
+      where(['name LIKE ? OR genre LIKE ? OR artist LIKE ? OR venue LIKE ?', "%#{search}%", "%#{search}%" , "%#{search}%" , "%#{search}%"] )
     else
-      find(:all)
+      all
     end
   end
 
