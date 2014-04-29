@@ -7,4 +7,14 @@ class Event < ActiveRecord::Base
   validates :date, presence: true
   validates :time, presence: true
   validates :venue, presence: true
+
+
+  def self.search(search)
+    if search
+      find(:all, :conditions =>['name LIKE ? OR genre LIKE ? OR artist LIKE ? OR venue LIKE ?', "%#{search}%", "%#{search}%" , "%#{search}%" , "%#{search}%"] )
+    else
+      find(:all)
+    end
+  end
+
 end
