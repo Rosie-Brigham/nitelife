@@ -96,7 +96,8 @@ let(:event) {FactoryGirl.create(:event, user: user)}
 
   describe "when an admin" do
     before do
-      current_user.update_attribute :admin, true
+      sign_in user
+      user.update_attribute :admin, true
     end
 
     it 'allows you to edit things' do
