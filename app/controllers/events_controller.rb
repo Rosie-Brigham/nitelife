@@ -4,12 +4,16 @@ before_action :authenticate_user!, except:[:index, :show]
       @event = Event.new
     end
 
+
     def create
       @event = Event.new(event_params)
       @event.user_id = current_user.id
         if @event.valid?
           @event.save
-          redirect_to @event
+          UserMailer.welcome_email(current_user).deliver
+ 
+        # format.json { render json: current_user, status: :created, location: current_user }
+          redirect_to @event, notice: 'User was successfully created.'
         else
           render :new
         end
