@@ -35,9 +35,14 @@ before_action :authenticate_user!, except:[:index, :show]
 
     def destroy
       @event = Event.find(params[:id])
-      @event.destroy
 
-      redirect_to events_path, notice: "That event has been deleted"
+      if current_user.admin || current_user.id == @event.user_id
+        @event.destroy
+        redirect_to events_path, notice: "That event has been deleted"
+      else
+        redirect_to event_path(@event), notice: "I'm sorry, you don't have permission to delete that event"
+      end
+
     end
 
     def update
