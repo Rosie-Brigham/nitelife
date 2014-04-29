@@ -1,0 +1,29 @@
+<h2>Your created events</h2>
+
+<div class="event_box">
+
+  
+
+  <% @users_events.each do |event| %>
+
+  <%# if event.user_id == current_user.id %>
+    
+    <h3><%= event.artist %></h3>
+      <%= event.genre %>
+
+    <div class="description">
+      <%= event.description %>
+    </div>
+
+      <%= event.venue %>
+      <%= event.date %>
+      <%= event.time %>
+      <span><%= event.url %>  <%= event.email %> </span> 
+    </div>
+  
+<%#= link_to 'Edit event', edit_event_path(event) %>
+<%#ß= button_to 'Delete Event', event_path(event), method: :delete, data: {confirm: 'Are you sure?' } %>
+  <%# end %>
+<% end %>
+
+<%= link_to 'Back', events_path %>
