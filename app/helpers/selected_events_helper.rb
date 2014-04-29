@@ -1,0 +1,2 @@
+module SelectedEventsHelper
+end
