@@ -15,7 +15,14 @@ feature "User Events" do
     
       page.should have_content "Your created events"
     end
+  end
 
+  context 'when not logged in' do
+
+    scenario 'I can\'t create an event' do
+      visit '/events/new'
+      page.should have_content "You need to sign in or sign up before continuing"
+    end
 
   end
 end

@@ -9,8 +9,10 @@ class Event < ActiveRecord::Base
   validates :date, presence: true 
   validates :time, presence: true
   validates :venue, presence: true
-  validate :date_cannot_be_in_past
+  # validate :date_cannot_be_in_past
   validate :must_be_valid_date
+
+  before_save :date_cannot_be_in_past
 
 
   def self.search(search)

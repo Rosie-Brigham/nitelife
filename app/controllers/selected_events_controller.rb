@@ -1,13 +1,21 @@
 class SelectedEventsController < ApplicationController
 
   def index
-    @selected_events = SelectedEvent.all
-    @selected_events.each do |event|
-      if event.user_id == current_user.id
-        @selected_event_for_user = event
-      end
+    
+
+    if user_signed_in?
+      @selected_events = SelectedEvent.all
+      @selected_events.each do |event|
       
+        if event.user_id == current_user.id
+          @selected_event_for_user = event
+        end
+      end
+
+    else
+      redirect_to events_path, notice: 'stop trying to break my site, naughty devloper!'
     end
+
   end
 
   def create
