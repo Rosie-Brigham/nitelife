@@ -13,7 +13,7 @@ before_action :authenticate_user!, except:[:index, :show]
           UserMailer.welcome_email(current_user).deliver
  
         # format.json { render json: current_user, status: :created, location: current_user }
-          redirect_to @event, notice: 'User was successfully created.'
+          redirect_to @event, notice: 'Event was successfully created.'
         else
           render :new
         end
@@ -61,7 +61,7 @@ before_action :authenticate_user!, except:[:index, :show]
     private
 
     def event_params
-      params.require(:event).permit(:name, :genre, :venue, :artist, :date, :time, :url, :email, :description)
+      params.require(:event).permit(:name, :genre, :venue, :artist, :date, :time, :url, :email, :description, :photo)
     end
 
 end
