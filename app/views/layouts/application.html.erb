@@ -54,6 +54,7 @@
           <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "Search", :name => nil %>
         </p>
+        
         <% end %>
       </div>
     </div>
@@ -63,5 +64,11 @@
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+
+  
+  <canvas id="canvas" width="800" height="200"></canvas>
+ 
+  <script src="photo.js"></script>
+
 </body>
 </html>

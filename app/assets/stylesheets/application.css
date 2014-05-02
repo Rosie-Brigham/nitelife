@@ -21,3 +21,11 @@ ul {
 li {
   display: inline;
 }
+
+#canvas {
+  border: solid;
+  border-width: 3px;
+  /*background-color: red;*/
+  display: inline-block;
+  border-color: white;
+}
