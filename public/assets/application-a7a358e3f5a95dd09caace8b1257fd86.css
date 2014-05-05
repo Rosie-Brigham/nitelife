@@ -1,0 +1,46 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+body {text-align: center}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline;
+}
+
+#canvas {
+  border: solid;
+  border-width: 3px;
+  /*background-color: red;*/
+  display: inline-block;
+  border-color: white;
+}
+
+.imageheader {
+	background-image: url('London-long.jpg');
+	opacity: 90%;
+	color: #ffffff;
+    background-size: 100%;
+
+    background-size: cover;
+    width: 100%;
+	background-attachment: relative;
+	background-position: center center;
+	text-align: left
+}
+}
