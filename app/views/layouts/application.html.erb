@@ -2,24 +2,27 @@
 <html>
 <head>
   <title>NiteLife</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <!-- TODO - ANOTHER ATTEMPT AT FONTS. -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'> -->
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
-  <!-- Latest compiled and minified CSS -->
+<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-</head>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js">
+</script>
+
 <body>
-  <div class="header">
+  <div class="header" style="font-family: 'Cabin', sans-serif">
   niteLife
   </div>
-  <div class="subheader">
+  <div class="navbar">
     <ul>
 
       <li>
@@ -44,18 +47,15 @@
           <li>
               <%= link_to('Login', new_user_session_path)  %>  
           </li>
-        </ul>           
-      <% end %>
-      <div>
-        <%=form_tag events_path, :method => 'get' do %>
-        <p>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :name => nil %>
-        </p>
-        
-        <% end %>
-      </div>
-
+          </ul>        
+          <% end %>
+          <span class="search-bar">
+            <%=form_tag events_path, :method => 'get' do %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search", :name => nil %>
+          <% end %>
+        </span>
+       
       
   
     </div>
@@ -66,9 +66,13 @@
   <p class="alert"><%= alert %></p>
 
   
-  <canvas id="canvas" width="800" height="200"></canvas>
+  <!-- <canvas id="canvas" width="800" height="200"></canvas> -->
  
   <script src="photo.js"></script>
 <!-- TODO - CHANGE THIS TO IMAGE OF TRAFALGA SQUARE -->
+
+<div class="footer">
+  Yup, this is a footer. wooop!
+</div>
 </body>
 </html>

@@ -1,28 +1,33 @@
 <h2>Event: <%= @event.name %></h2>
 
 
-  <div class="event_box">
-    
-    <h3><%= @event.artist %></h3>
-    <%= @event.genre %>
-
-    <div class="description">
-      <%= @event.description %>
+  <div class="show-box">
+    <div class="event-photo-large">
+      <%= image_tag @event.photo.url(:large) %>
     </div>
-
+    <br>
+    <h3><%= @event.artist %></h3>
+    Genre: <%= @event.genre %> 
+    <br><br>
+    <p>
+    <span class="description">
+      <%= @event.description %>
+    </span>
+    </p>
     <%= @event.venue %>
     <%= @event.date %>
     <%= @event.time %>
     <span><%= @event.url %>  <%= @event.email %> </span> 
-    <%= image_tag @event.photo.url(:medium) %>
-     </div>
- 
+    
+  </div>
+ <p>
 <% if user_signed_in? %>
   <h4>Like the look of this event? Add it to your 'Selected Events' feed!!</h4>
   <%= button_to 'dammthislookscool', selected_events_path(event_id: @event.id) %> 
   <%= link_to 'Edit event', edit_event_path(@event) %>
   <%= button_to 'Delete Event', event_path(@event), method: :delete, data: {confirm: 'Are you sure?' } %>
  <% end %>
+ </p>
 
 
 <%= link_to 'Back', events_path %>

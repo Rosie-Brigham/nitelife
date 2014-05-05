@@ -21,6 +21,10 @@ NiteLife::Application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
+  config.assets.enabled = true  
+  config.assets.paths << "#{Rails.root}/app/assets/fonts" 
+
+
   # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load
 
