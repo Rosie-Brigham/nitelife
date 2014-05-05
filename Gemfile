@@ -43,9 +43,6 @@ group :development, :test do
   gem 'pry'
 end
 
-group :assets do
-	gem 'twitter-bootstrap-rails'
-end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
