@@ -4,19 +4,19 @@
   <title>NiteLife</title>
   <!-- TODO - ANOTHER ATTEMPT AT FONTS. -->
   <!-- <link href='http://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'> -->
-<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js">
-</script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js">
+  </script>
 
   <body>
     <div class="header" style="font-family: 'Cabin', sans-serif">
@@ -65,20 +65,17 @@
 
 
 
+    <%= yield %>
 
-<%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
-  
-  .<canvas id="canvas" width="800" height="200"></canvas>
- 
-  <script src="photo.js"></script>
-<!-- TODO - CHANGE THIS TO IMAGE OF TRAFALGA SQUARE -->
+    
+    <!-- TODO - CHANGE THIS TO IMAGE OF TRAFALGA SQUARE -->
 
-<div class="footer">
-  Yup, this is a footer. wooop!
-</div>
-</body>
-</html>
+    <div class="footer">
+      Yup, this is a footer. wooop!
+    </div>
+  </body>
+  </html>
