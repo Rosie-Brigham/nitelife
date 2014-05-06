@@ -2,26 +2,25 @@
 
 <div class="event_box">
 
-  <% if @selected_event_for_user == nil %>
+  <% unless current_user.interested_events.any?  %>
     <div class="warning">
        <h4>Oh no! It seems you dont have any selected events, go and find some!!!</h4>
     </div>
   <% else %>
 
-    <% @selected_event_for_user.each do |event| %>
-
-      <% @event = Event.find(event.id) %>
-      <%= @event.artist %>
-      <%= @event.genre %>
+    <% current_user.interested_events.each do |event| %>
+      <h2><%= link_to event.name, event_path(event) %></h2>
+      <%= event.artist %>
+      <%= event.genre %>
 
       <div class="description">
-        <%= @event.description %>
+        <%= event.description %>
       </div>
 
-      <%= @event.venue %>
-      <%= @event.date %>
-      <%= @event.time %>
-      <span><%= @event.url %>  <%= @event.email %> </span> 
+      <%= event.venue %>
+      <%= event.date %>
+      <%= event.time %>
+      <span><%= event.url %>  <%= event.email %> </span> 
   </div>
     <% end %>
   <% end %>
