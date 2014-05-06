@@ -8,8 +8,11 @@ FactoryGirl.define do
     description 'a performance of the faure requiem'
     url 'barbican.co.uk'
     email 'barbican@barbican.co.uk'
-    date '15/06/2014'
+    date { Date.tomorrow }
     time '7:30pm'
   end
 
+  factory :out_of_date_event, parent: :event do
+    date { Date.yesterday }
+    end
 end

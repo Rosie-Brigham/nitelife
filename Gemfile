@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
 
+gem 'whenever', :require => false
+
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 group :doc do

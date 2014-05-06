@@ -7,7 +7,7 @@
   <% @users_events.each do |event| %>
 
   <%# if event.user_id == current_user.id %>
-    
+    <h2><%= link_to event.name, event_path(event) %></h2>
     <h3><%= event.artist %></h3>
       <%= event.genre %>
 

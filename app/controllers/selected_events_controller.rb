@@ -5,13 +5,6 @@ class SelectedEventsController < ApplicationController
 
     if user_signed_in?
       @selected_events = SelectedEvent.all
-      @selected_events.each do |event|
-      
-        if event.user_id == current_user.id
-          @selected_event_for_user = event
-        end
-      end
-
     else
       redirect_to events_path, notice: 'stop trying to break my site, naughty developer!'
     end
@@ -23,7 +16,11 @@ class SelectedEventsController < ApplicationController
     @selected_event.user_id = current_user.id
     @selected_event.event_id = Event.find(params[:event_id]).id
     @selected_event.save
-    redirect_to selected_events_path
-  end
 
+      if @selected_event.save
+       redirect_to selected_events_path
+      else
+        redirect_to selected_events_path, notice: "You've already selected that!"
+      end
+  end
 end
