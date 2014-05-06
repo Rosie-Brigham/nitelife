@@ -13,7 +13,7 @@ class SelectedEventsController < ApplicationController
       end
 
     else
-      redirect_to events_path, notice: 'stop trying to break my site, naughty devloper!'
+      redirect_to events_path, notice: 'stop trying to break my site, naughty developer!'
     end
 
   end

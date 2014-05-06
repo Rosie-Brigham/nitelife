@@ -1,0 +1,112 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+body {text-align: center;
+		padding: 0px;
+		background-image:url('images/stardust.png');}
+
+/*THE HEADER*/
+.header {
+	background-image: url('http://blog.travelrepublic.co.uk/wp-content/uploads/2012/07/london-night.jpg');*/
+	opacity: 90%;
+	color: #E8CFBA;
+  background-size: 100%;
+  background-size: cover;
+  /*width: 100%;*/
+  height: 100%;
+  background-color: #0A0021;
+	background-position: center center;
+	font-size: 200px
+}
+/*TODO  - media queiries to make text smaller as shrinks.*/
+
+/* NAVBAR :) */
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline;
+  padding: 30px
+}
+
+li a {
+	color: #F2DDCA;
+}
+
+li a:hover{
+	color: #AD1283
+}
+li span {
+	display:inline;
+}
+
+input[type="submit"] {
+color: #0A0021;
+background-color: #DADFD6;
+}
+
+input, button, select, textarea{
+	color: #022733;
+}
+
+/*THE CANVAS THING (NEEDS WORK ON)*/
+#canvas {
+  border: solid;
+  border-width: 3px;
+  /*background-color: red;*/
+  display: inline-block;
+  border-color: white;
+}
+
+/*THE EVENTS*/
+.event-box {
+	width: 1000px;
+	text-align: left;
+	position: center;
+}
+
+.event-photo {
+	width: 200px;
+	height: 200px;
+	padding-left: 70px;
+}
+
+.event-photo img {
+	width: 200px;
+	height: auto;
+}
+.event-info {
+	color: blue;
+	
+}
+
+.navbar {
+	background-color: #0A0021;
+	text-align: left;
+	font-size: 20px;
+
+}
+
+.navbar form {
+	text-align: right;
+}
+
+
+
+
+
+
+

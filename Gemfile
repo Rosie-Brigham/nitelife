@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
 
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -40,6 +42,7 @@ group :development, :test do
   gem 'capybara'
   gem 'pry'
 end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

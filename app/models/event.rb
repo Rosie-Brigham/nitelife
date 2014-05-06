@@ -9,10 +9,17 @@ class Event < ActiveRecord::Base
   validates :date, presence: true 
   validates :time, presence: true
   validates :venue, presence: true
-  # validate :date_cannot_be_in_past
   validate :must_be_valid_date
 
+  has_attached_file :photo, :styles => { 
+    :medium => "300x300>", :thumb => "100x100>", :large => "700x700>", :strip => "300X150>"
+    }, :default_url => "/images/:style/missing.png"
+  
+  validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+  
   before_save :date_cannot_be_in_past
+
+
 
 
   def self.search(search)
