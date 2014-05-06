@@ -1,8 +1,6 @@
 class SelectedEventsController < ApplicationController
 
   def index
-    
-
     if user_signed_in?
       @selected_events = SelectedEvent.all
     else
@@ -17,10 +15,17 @@ class SelectedEventsController < ApplicationController
     @selected_event.event_id = Event.find(params[:event_id]).id
     @selected_event.save
 
-      if @selected_event.save
-       redirect_to selected_events_path
-      else
-        redirect_to selected_events_path, notice: "You've already selected that!"
-      end
+    if @selected_event.save
+     redirect_to selected_events_path
+    else
+      redirect_to selected_events_path, notice: "You've already selected that!"
+    end
   end
+
+  def destroy
+    @selected_event = SelectedEvent.find(params[:id])
+    @selected_event.destroy
+    redirect_to selected_events_path
+  end
+
 end
