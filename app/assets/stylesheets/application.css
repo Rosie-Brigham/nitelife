@@ -44,79 +44,29 @@ body {text-align: center;
  		font-size: 100px;
  	}
  }
-/*TODO  - media queiries to make text smaller as shrinks.*/
 
-/* NAVBAR :) */
-ul {
-  list-style-type: none;
-}
 
-li {
-  display: inline;
-  padding: 30px
-}
-
-li a {
-	color: #ECEEF7;
-}
-
-li a:hover{
-	color: #AD1283
-}
-li span {
-	display:inline;
-}
-
-input[type="submit"] {
-color: #0A0021;
-background-color: #DADFD6;
-}
-
-input, button, select, textarea{
-	color: #022733;
-}
-
+/*BOOTSTRAP NAVBAR*/
 .navbar {
+	border: none !important;
+}
+
+div.container-fluid {
 	background-color: #0A0021;
-	text-align: left;
-	font-size: 20px;
-
 }
 
-.navbar form {
-	text-align: right;
+.tnav .navbar .container { 
+	height: 28px; 
+	background-color: #0A0021;
 }
 
- @media screen and (max-width: 1000px) {
- 	li {
- 		padding: 20px;
- 	}
- 	.navbar form {
- 		visibility: hidden
- 	}
- }
+.navbar-default .navbar-nav a {
+	color: #C0C7F2 !important;
+	text-shadow: none !important;
+}
 
-
- @media screen and (max-width: 600px) {
- 	li {
- 		padding: 10px;
- 	}
- 	.navbar form {
- 		visibility: hidden
- 	}
- }
-
-
-
-
-
-/*THE CANVAS THING (NEEDS WORK ON)*/
-#canvas {
-  border: solid;
-  border-width: 3px;
-  /*background-color: red;*/
-  display: inline-block;
-  border-color: white;
+.navbar-default .navbar-nav>li>a:hover {
+	color: #AD1283 !important;
 }
 
 
