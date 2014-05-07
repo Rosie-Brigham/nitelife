@@ -20,7 +20,7 @@ class SelectedEvent < ActiveRecord::Base
  end
 
  def ready_for_reminder?
-   self.event.date >= Date.today+1.day
+   self.event.date == Date.today+1.day
  end
 
 end

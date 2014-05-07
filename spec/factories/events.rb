@@ -14,5 +14,9 @@ FactoryGirl.define do
 
   factory :out_of_date_event, parent: :event do
     date { Date.yesterday }
-    end
+  end
+
+  factory :future_event, parent: :event do
+    date { Date.today + 1.month }
+  end
 end

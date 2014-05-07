@@ -24,8 +24,7 @@ before_action :authenticate_user!, except:[:index, :show]
     end
 
     def index
-      # @events = Event.all
-      @events = Event.search(params[:search])
+        @events = Event.search(params[:search])
     end
 
     def edit

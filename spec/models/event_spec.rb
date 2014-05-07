@@ -27,5 +27,10 @@ describe Event do
       subject.should have(1).error_on(:time)
     end    
 
+    it 'cannot save a date in the past' do
+      subject {FactoryGirl.create(:out_of_date_event)}
+      subject.should have(1).error_on(:time)
+    end
+
   end
 end

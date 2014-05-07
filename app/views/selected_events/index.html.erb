@@ -8,22 +8,9 @@
     </div>
   <% else %>
 
-    <% current_user.interested_events.each do |event| %>
-      <h2><%= link_to event.name, event_path(event) %></h2>
-      <%= event.artist %>
-      <%= event.genre %>
+    <% current_user.selected_events.each do |selected_event| %>
+      <%= render selected_event.event %>
 
-      <div class="description">
-        <%= event.description %>
-      </div>
-
-      <%= event.venue %>
-      <%= event.date %>
-      <%= event.time %>
-      <span><%= event.url %>  <%= event.email %> </span> 
-
-      not your thing? Simples, just click to remove this from your events!
-      <%= button_to('Remove', selected_events_path(@selected_event), class: 'btn btn-large btn-primary', method: :delete, data: {confirm: 'Are you sure?' })%>
   </div>
     <% end %>
   <% end %>
