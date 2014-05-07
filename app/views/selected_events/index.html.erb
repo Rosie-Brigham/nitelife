@@ -21,6 +21,9 @@
       <%= event.date %>
       <%= event.time %>
       <span><%= event.url %>  <%= event.email %> </span> 
+
+      not your thing? Simples, just click to remove this from your events!
+      <%= button_to('Remove', selected_events_path(@selected_event), class: 'btn btn-large btn-primary', method: :delete, data: {confirm: 'Are you sure?' })%>
   </div>
     <% end %>
   <% end %>
