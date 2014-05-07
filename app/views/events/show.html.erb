@@ -25,7 +25,9 @@
   <h4>Like the look of this event? Add it to your 'Selected Events' feed!!</h4>
   <%= button_to 'dammthislookscool', selected_events_path(event_id: @event.id) %> 
   <%= link_to 'Edit event', edit_event_path(@event) %>
-  <%= button_to 'Delete Event', event_path(@event), method: :delete, data: {confirm: 'Are you sure?' } %>
+   <% if current_user.id == @event.user_id %>
+     <%= button_to 'Delete Event', event_path(@event), method: :delete, data: {confirm: 'Are you sure?' } %>
+   <% end %>
  <% end %>
  </p>
 
