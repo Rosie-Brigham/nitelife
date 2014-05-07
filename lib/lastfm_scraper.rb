@@ -1,0 +1,3 @@
+class LastfmScraper
+
+end

@@ -7,6 +7,16 @@ feature "Events" do
     visit '/events'
     
     page.should have_content event.name
+
+  end
+  
+  scenario 'It should not show events in the past' do
+    event = FactoryGirl.create(:event)
+    Timecop.freeze(Date.today + 2.days) do
+    visit '/events'
+    page.should_not have_content event.name
+    end
+
   end
 
   context "when logged in" do
