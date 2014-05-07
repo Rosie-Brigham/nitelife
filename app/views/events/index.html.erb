@@ -20,6 +20,6 @@
   </div>
   <br>
 <% end %>
-
-<%= link_to 'Add an event', new_event_path %> 
-
+<% if user_signed_in? %>
+  <%= link_to 'Add an event', new_event_path %> 
+<% end %>

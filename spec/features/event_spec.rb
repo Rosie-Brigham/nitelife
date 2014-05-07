@@ -32,22 +32,4 @@ feature "Events" do
     end
   end
 
-  context "when not logged in" do
-    scenario "asking for log in" do
-      visit "/events"
-      click_link 'Add an event'
-      expect(page).to have_text("You need to sign in or sign up before continuing.")
-    end
-  end
-
-#   context "when admin" do
-#     current_user.update_attribute :admin, true
-#      scenario 'when an admin' do
-#       click_link 'Edit event'
-#       fill_in "Name", :with => "Labyrinth"
-#       click_button 'Update' 
-#       page.should have_content "Labyrinth"
-#   end
-# end
-
 end
