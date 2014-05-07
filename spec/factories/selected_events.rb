@@ -6,8 +6,8 @@ FactoryGirl.define do
     association :user
   end
 
-  factory :out_of_date_selected_event, class: SelectedEvent do
-    association :event, factory: :out_of_date_event
+  factory :future_selected_event, class: SelectedEvent do
+    association :event, factory: :future_event
     association :user
   end
 end
