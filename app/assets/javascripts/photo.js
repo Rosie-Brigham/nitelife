@@ -3,9 +3,9 @@
 var img = new Image();
 
 
-img.src = 'http://www.yoursingapore.com/content/traveller/en/browse/see-and-do/nightlife/_jcr_content/flash/image.img.png';
-var CanvasXSize = 800;
-var CanvasYSize = 200;
+img.src = 'http://cdn1.360cities.net/pano/tom-mills/00613022_bt_b.jpg/equirect_crop_3_1/5.jpg';
+var CanvasXSize = 768;
+var CanvasYSize = 256;
 var speed = 30; 
 var scale = 1.05;
 var y = -4.5; 
