@@ -19,10 +19,7 @@ class Event < ActiveRecord::Base
   
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
   
-
-
   scope :latest, -> { order(date: :asc, time: :asc)}
-
 
   def self.search(search)
     if search

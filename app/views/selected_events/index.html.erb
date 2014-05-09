@@ -1,4 +1,4 @@
-<h2>Well aren't these selected_events just the coolest thing</h2>
+<h2>Upcoming Events</h2>
 
 <div class="event_box">
 
@@ -9,16 +9,8 @@
   <% else %>
 
     <% current_user.selected_events.each do |selected_event| %>
-      <%= render selected_event.event %>
-
-  </div>
+      <%= render selected_event, event: selected_event.event %>
     <% end %>
   <% end %>
+</div>
 
-
-
-
-
-
-    <h3><%#= @event = Event.find(SelectedEvent.find(@selected_events.id).event_id) %></h3>
-    

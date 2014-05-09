@@ -1,23 +1,18 @@
-<h2>Event: <%= @event.name %></h2>
-
-
   <div class="show-box">
     <div class="event-photo-large">
       <%= image_tag @event.photo.url(:large) %>
     </div>
-    <br>
-    <h3><%= @event.artist %></h3>
-    Genre: <%= @event.genre %> 
-    <br><br>
-    <p>
-    <span class="description">
+    <h2><%= @event.name %></h2>
+    <h3>Artists: <%= @event.artist %></h3>
+    <p><span class="description">
       <%= @event.description %>
     </span>
     </p>
-    <%= @event.venue %>
-    <%= @event.date %>
-    <%= @event.time %>
-    <span><%= @event.url %>  <%= @event.email %> </span> 
+    <p>Venue: <%= @event.venue %></p>
+    <p>Date: <%= @event.date %></p>
+    <p>Time: <%= @event.time %></p>
+    <p>Genre: <%= @event.genre %></p>
+    <p><span>Info: <%= @event.url %>  <%= @event.email %> </span></p>
     
   </div>
  <p>

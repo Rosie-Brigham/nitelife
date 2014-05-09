@@ -15,12 +15,12 @@ class SelectedEvent < ActiveRecord::Base
     SelectedEvent.includes(:event, :user).select { |se| se.ready_for_reminder? }
   end
  
- def deliver_reminder
-   SelectedEventMailer.event_alert(self).deliver
- end
+  def deliver_reminder
+    SelectedEventMailer.event_alert(self).deliver
+  end
 
- def ready_for_reminder?
-   self.event.date == Date.today+1.day
- end
+  def ready_for_reminder?
+    self.event.date == Date.today+1.day
+  end
 
 end

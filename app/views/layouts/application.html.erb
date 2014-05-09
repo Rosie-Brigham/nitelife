@@ -4,8 +4,8 @@
   <title>NiteLife</title>
   <!-- TODO - ANOTHER ATTEMPT AT FONTS. -->
   <!-- <link href='http://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'> -->
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
   <!-- Latest compiled and minified CSS -->
@@ -21,9 +21,8 @@
   <body>
     <div class="header" style="font-family: 'Cabin', sans-serif">
       <div class="title">niteLife </div>
-      <canvas id="canvas" width="768" height="200"></canvas>
-      <%= javascript_include_tag 'photo.js' %>
-      
+      <canvas id="canvas" width="1400" height="200"></canvas>
+      <% javascript_include_tag 'canvas_scroll.js' %>
     </div>
       
     <div class="navbar">
@@ -43,8 +42,8 @@
             <ul class="nav navbar-nav">
               <li><%= link_to 'Home', events_path %></a></li>
               <% if user_signed_in? %>
-              <li><%= link_to 'Your events', user_events_path %></li>
-              <li><%= link_to 'Epic stuff', selected_events_path %></li>
+              <li><%= link_to 'Your created events', user_events_path %></li>
+              <li><%= link_to 'Upcoming Events', selected_events_path %></li>
               <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
               <% else %>
               <li><%= link_to('Login', new_user_session_path)  %></li>
@@ -75,7 +74,7 @@
     <!-- TODO - CHANGE THIS TO IMAGE OF TRAFALGA SQUARE -->
 
     <div class="footer">
-      Yup, this is a footer. wooop!
+      NiteLife
     </div>
   </body>
   </html>

@@ -1,32 +1,12 @@
 <h2>Your created events</h2>
-
-<div class="event_box">
-
-  
-
+<h3><%= link_to 'Add an event', new_event_path %></h3>
   <% @users_events.each do |event| %>
-
-  <%# if event.user_id == current_user.id %>
-    <h2><%= link_to event.name, event_path(event) %></h2>
-    <h3><%= event.artist %></h3>
-      <%= event.genre %>
-
-    <div class="description">
-      <%= event.description %>
-    </div>
-
-      <%= event.venue %>
-      <%= event.date %>
-      <%= event.time %>
-      <span><%= event.url %>  <%= event.email %> </span> 
-    </div>
-  
-<%#= link_to 'Edit event', edit_event_path(event) %>
-<%#ß= button_to 'Delete Event', event_path(event), method: :delete, data: {confirm: 'Are you sure?' } %>
-  <%# end %>
+    <% if event.date >= Date.today %>
+      <%= render event %>
+    <% end %>
 <% end %>
-
 <br>
-<%= link_to 'Add an event', new_event_path %> 
-
-<%= link_to 'Back', events_path %>
+<ul>
+  <li><%= link_to 'Add an event', new_event_path %></li>
+  <li><%= link_to 'Back', events_path %></li>
+</ul>

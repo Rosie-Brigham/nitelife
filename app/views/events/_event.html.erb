@@ -1,18 +1,16 @@
-<h2><%= link_to event.name, event_path(event) %></h2>
-  <%= event.artist %>
-  <%= event.genre %>
-
-  <div class="description">
-    <%= event.description %>
-  </div>
-
-  <%= event.venue %>
-  <%= event.date %>
-  <%= event.time %>
-  <span><%= event.url %>  <%= event.email %> </span> 
-
-  not your thing? Simples, just click to remove this from your events!
-
-
-
-  <%= button_to('Remove', selected_event_path(event), class: 'btn btn-large btn-primary', method: :delete, data: {confirm: 'Are you sure?' })%>
+<div class="event-box">
+  <span class="event-photo">
+    <%= image_tag event.photo.url(:strip) %>
+  </span>
+  <span class="event-name">
+    <h2><%= link_to event.name, event_path(event) %></h2>
+    <span id='event-info'>
+    <h3><%= event.artist %></h3>
+    <%#= event.genre %>
+    <p><%= event.venue %></p>
+    <p><%= event.date %></p>
+    <%#= event.time %>
+<!--     <a href="http://<%= event.url %>"><%= event.url %></a>  --> <%#= event.email %> 
+    </span>
+  </span>
+</div>

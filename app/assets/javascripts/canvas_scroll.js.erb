@@ -4,13 +4,13 @@ var img = new Image();
 
 
 // img.src = 'http://cdn1.360cities.net/pano/tom-mills/00613022_bt_b.jpg/equirect_crop_3_1/5.jpg';
-img.src = '<%= asset_path 'canvas_image.png' %>';
+img.src = "<%= asset_path 'canvas_image3.jpg' %>";
 
 
 // link_to(image_tag("canvas_image.png"),  "canvas_image.png")
 
 // 'public/assets/images/canvas_image.png';
-var CanvasXSize = 768;
+var CanvasXSize = 1400; 
 var CanvasYSize = 256;
 var speed = 50; 
 var scale = 1.05;
@@ -29,12 +29,12 @@ var ctx;
 img.onload = function() {
     imgW = img.width*scale;
     imgH = img.height*scale;
-    if (imgW > CanvasXSize) { x = CanvasXSize-imgW; } // image larger than canvas
-    if (imgW > CanvasXSize) { clearX = imgW; } // image larger than canvas
-    else { clearX = CanvasXSize; }
-    if (imgH > CanvasYSize) { clearY = imgH; } // image larger than canvas
-    else { clearY = CanvasYSize; }
-    //Get Canvas Element
+    // if (imgW > CanvasXSize) { x = CanvasXSize-imgW; } // image larger than canvas
+    // if (imgW > CanvasXSize) { clearX = imgW; } // image larger than canvas
+    // else { clearX = CanvasXSize; }
+    // if (imgH > CanvasYSize) { clearY = imgH; } // image larger than canvas
+    // else { clearY = CanvasYSize; }
+    // Get Canvas Element
     ctx = document.getElementById('canvas').getContext('2d');
     //Set Refresh Rate
     return setInterval(draw, speed);
@@ -44,20 +44,22 @@ function draw() {
     //Clear Canvas
     ctx.clearRect(0,0,clearX,clearY);
     //If image is <= Canvas Size
+    // this starts the image drawing from the left
     if (imgW <= CanvasXSize) {
         //reset, start from beginning
         if (x > (CanvasXSize)) { x = 0; }
         //draw aditional image
         if (x > (CanvasXSize-imgW)) { ctx.drawImage(img,x-CanvasXSize+1,y,imgW,imgH); }
     }
-    //If image is > Canvas Size
+    //If image is > Canvas Size - once the image has scrolled beyond the canvas width
+    // this removes the image from the canvas
     else {
         //reset, start from beginning
         if (x > (CanvasXSize)) { x = CanvasXSize-imgW; }
         //draw aditional image
         if (x > (CanvasXSize-imgW)) { ctx.drawImage(img,x-imgW+1,y,imgW,imgH); }
     }
-    //draw image
+    //draw image - this is the part the canvas starts with.
     ctx.drawImage(img,x,y,imgW,imgH);
     //amount to move
     x += dx;
