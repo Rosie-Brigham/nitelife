@@ -4,10 +4,9 @@
 
   <% unless current_user.interested_events.any?  %>
     <div class="warning">
-       <h4>Oh no! It seems you dont have any selected events, go and find some!!!</h4>
+       <h4>Oh no! It seems you dont have any selected events, go and find some!</h4>
     </div>
   <% else %>
-
     <% current_user.selected_events.each do |selected_event| %>
       <%= render selected_event, event: selected_event.event %>
     <% end %>
