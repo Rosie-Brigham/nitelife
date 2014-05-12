@@ -1,6 +1,10 @@
 <div class="event-box">
   <div class="event-photo">
-    <%= image_tag event.photo.url(:strip) %>
+    <% if event.photo_url %>
+      <img src="<%= event.photo_url %>" >
+    <% else %>
+      <%= image_tag event.photo.url(:strip) %>
+    <% end %>
   </div>
   <div class="event-name">
     <h2><%= link_to event.name, event_path(event) %></h2>
