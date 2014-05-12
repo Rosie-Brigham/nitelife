@@ -176,6 +176,7 @@ DEPENDENCIES
   factory_girl_rails
   jbuilder (~> 1.2)
   jquery-rails
+  nokogiri
   paperclip!
   pry
   rails (= 4.0.2)
