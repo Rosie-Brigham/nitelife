@@ -1,15 +1,16 @@
 class LastfmScraper
-  URL = "http://www.last.fm/events"
+  URL = "http://www.last.fm"
 
   def self.scrape
-    @doc = Nokogiri::HTML(open(URL))
+    entry_point = URL + '/events'
+    @doc = Nokogiri::HTML(open(entry_point))
 
     @doc.css("table.eventsMedium tr .detail a").each do |node|
       event = Event.new
-      @eventpath = node.first[1]
+      eventpath = node.first[1]
    
       # now... we need to visit each of the individual sites and scrape the info from there to!
-      eventurl = "http://www.last.fm#{@eventpath}"
+      eventurl = URL + eventpath
       eventdoc = Nokogiri::HTML(open(eventurl))
 
       # gets the title/artist
