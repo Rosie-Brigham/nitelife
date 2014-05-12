@@ -1,7 +1,7 @@
 <div class="event-box">
-  <span class="event-photo">
+  <div class="event-photo">
     <%= image_tag event.photo.url(:strip) %>
-  </span>
+  </div>
   <div class="event-name">
     <h2><%= link_to event.name, event_path(event) %></h2>
       <div id='event-info'>

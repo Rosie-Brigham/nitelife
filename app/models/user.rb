@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
   has_many :events
 
   has_many :selected_events
+  has_many :selected_artists
   has_many :interested_events, through: :selected_events, class_name: "Event", source: :event
+  has_many :interested_in_more_events, through: :artist_events, class_name: "Event", source: :event
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
