@@ -1,16 +1,13 @@
 <div class="event-box">
-  <span class="event-photo">
+  <div class="event-photo">
     <%= image_tag event.photo.url(:strip) %>
-  </span>
-  <span class="event-name">
+  </div>
+  <div class="event-name">
     <h2><%= link_to event.name, event_path(event) %></h2>
-    <span id='event-info'>
-    <h3><%= event.artist %></h3>
-    <%#= event.genre %>
-    <p><%= event.venue %></p>
-    <p><%= event.date %></p>
-    <%#= event.time %>
-<!--     <a href="http://<%= event.url %>"><%= event.url %></a>  --> <%#= event.email %> 
-    </span>
-  </span>
+      <div id='event-info'>
+        <h3><%= event.artist %></h3>
+        <p><%= event.venue %></p>
+        <p><%= event.date %></p>
+      </div>
+  </div>
 </div>

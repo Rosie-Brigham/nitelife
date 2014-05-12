@@ -1,13 +1,12 @@
 class SelectedEvent < ActiveRecord::Base
   belongs_to :user
   belongs_to :event
-
   validates :event_id, :uniqueness => { :scope => :user_id }
 
   def self.send_reminder_emails
     todays_reminders = check_events
     todays_reminders.each do |selected_event|
-      selected_event.deliver_reminder
+    selected_event.deliver_reminder
     end
   end
 

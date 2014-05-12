@@ -6,7 +6,6 @@ class SelectedEventsController < ApplicationController
     else
       redirect_to events_path, notice: 'stop trying to break my site, naughty developer!'
     end
-
   end
 
   def create
@@ -16,7 +15,7 @@ class SelectedEventsController < ApplicationController
     @selected_event.save
 
     if @selected_event.save
-     redirect_to selected_events_path
+      redirect_to selected_events_path
     else
       redirect_to selected_events_path, notice: "You've already selected that!"
     end
