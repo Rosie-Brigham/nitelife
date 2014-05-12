@@ -25,3 +25,7 @@ every 1.day, :at => '10.00 am' do
           #   send an email
           # end
 end
+
+every 1.day, :at => '08.00 am' do
+  rake 'fetch_events'
+end
