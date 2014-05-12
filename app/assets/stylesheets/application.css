@@ -79,6 +79,11 @@ body {
 	position: relative;
 	height: 150px;
 	overflow: hidden;
+  border-radius: 3px;
+}
+
+.event-box:hover {
+  background-color:#7C83B2;
 }
 
 .event-photo img {
@@ -116,7 +121,7 @@ body {
 }
 
 .event-name a:hover {
-	color: #AD1283;
+	color: #B9E4F9;
 }
 
 .are_you_sure {
