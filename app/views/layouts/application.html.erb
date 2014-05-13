@@ -75,6 +75,15 @@
     <% if alert %>
       <h4 class="alert"><%= alert %></h4>
     <% end %>
+
+
+    <% if user_signed_in? %>
+      <div id="sb-site">
+        <ul>
+          <li class="sb-toggle-left">My Stuff</li>
+          <li class="sb-close">Go away stuff!!!</li>
+         </ul>
+    <% end %>
       
     <div class="sb-slidebar sb-left">
       <ul class="sidebar">
@@ -91,7 +100,6 @@
 
     <%= yield %>   
 
-    <!-- jQuery -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     
     <%= javascript_include_tag 'slidebars.min.js' %>
