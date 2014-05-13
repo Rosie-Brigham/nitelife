@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>NiteLife</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <!-- TODO - ANOTHER ATTEMPT AT FONTS. -->
   <!-- <link href='http://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'> -->
   <%= stylesheet_link_tag    "application", media: "all" %>
@@ -15,8 +16,9 @@
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
   <!-- Latest compiled and minified JavaScript -->
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js">
-  </script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
 
   <body>
     <div class="header" style="font-family: 'Cabin', sans-serif">
@@ -64,13 +66,52 @@
         </div> 
       </nav> 
     </div>
-    <h4 class="notice"><%= notice %></h4>
-    <h4 class="alert"><%= alert %></h4>
+    <% if notice %>
+      <h4 class="notice"><%= notice %></h4>
+    <% end %>
 
-    <%= yield %>
+    <% if alert %>
+      <h4 class="alert"><%= alert %></h4>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div id="sb-site">
+        <ul>
+          <li class="sb-toggle-left">My Stuff</li>
+          <li class="sb-close">Go away stuff!!!</li>
+         </ul>
+    <% end %>
+      
+          
+    <div class="sb-slidebar sb-left">
+      <ul class="sidebar">
+        <% if user_signed_in? %>
+          <li><%= link_to 'Your Created Events', user_events_path %></li>
+          <li><%= link_to 'Upcoming Events', selected_events_path %></li>
+        <% else %>
+          <div class='note'>How did you get this open? naught developer!</div>
+        <% end %> 
+      </ul>
+    </div>
+    
+
+    <%= yield %>   
+
+    <!-- jQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <%= javascript_include_tag 'slidebars.min.js' %>
+    <script>
+      (function($) {
+        $(document).ready(function() {
+          $.slidebars();
+        });
+      }) (jQuery);
+    </script>
 
     <div class="footer">
       <p>NiteLife</p>
     </div>
+        
   </body>
   </html>
