@@ -1,8 +1,6 @@
 class UserEventsController < ApplicationController
   
   def index
-    # @event = Event.all
-    # @event.user_id == .id 
     if current_user == nil
       redirect_to events_path, notice: 'you need to log in/sign up!'
     elsif current_user.events == nil 
