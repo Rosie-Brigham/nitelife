@@ -6,6 +6,7 @@ class LastfmScraper
     @doc = Nokogiri::HTML(open(entry_point))
 
     @doc.css("table.eventsMedium tr .detail a").each do |node|
+      artist_class = Artist.new
       event = Event.new
       eventpath = node.first[1]
    
@@ -20,7 +21,10 @@ class LastfmScraper
         artist_name = eventdoc.css(".page-head.without-crumbtrail h1").text
       end
 
-      event.artist = artist_name
+      artist_class.name = artist_name
+      artist_class.save
+        
+      event.artist_id = artist_class.id
       event.name = artist_name
 
       # gets the venue

@@ -1,0 +1,14 @@
+<h2>Upcoming Events from your favourite Artist</h2>
+
+<div class="event_box">
+
+  <% unless current_user.artist_events.any?  %>
+    <div class="warning">
+       <h4>Oh no! It seems you dont have any selected artists, go and find some!</h4>
+    </div>
+  <% else %>
+    <% current_user.artist_events.each do |event| %>
+      <%= render event %>
+    <% end %>
+  <% end %>
+</div>

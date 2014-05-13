@@ -9,7 +9,7 @@
   <div class="event-name">
     <h2><%= link_to event.name, event_path(event) %></h2>
       <div id='event-info'>
-        <h3><%= event.artist %></h3>
+        <h3><%= event.artist.name %></h3>
         <p><%= event.venue %></p>
         <p><%= event.date %></p>
       </div>
