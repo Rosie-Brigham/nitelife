@@ -23,7 +23,8 @@
   <body>
     <div class="header" style="font-family: 'Cabin', sans-serif">
       <div class="title">NiteLife</div>
-        <canvas id="canvas" width="1400" height="200"></canvas>
+        <canvas id="canvas" width="1400" height="200">
+        </canvas>
         <% javascript_include_tag 'canvas_scroll.js' %>
     </div>
       
@@ -42,10 +43,12 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><%= link_to 'Home', events_path %></a></li>
+              <li>
+              <li><%= link_to 'All Events', events_path %></a></li>
               <% if user_signed_in? %>
               <li><%= link_to 'Your Created Events', user_events_path %></li>
               <li><%= link_to 'Upcoming Events', selected_events_path %></li>
+              <li><%= link_to 'Selected Artist Events', selected_artists_path %></li>
               <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
               <% else %>
               <li><%= link_to('Login', new_user_session_path)  %></li>
@@ -94,7 +97,6 @@
 
     <%= yield %>   
 
-
     <!-- jQuery -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     
@@ -106,7 +108,7 @@
         });
       }) (jQuery);
     </script>
-    
+
     <div class="footer">
       <p>NiteLife</p>
     </div>

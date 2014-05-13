@@ -223,6 +223,21 @@ li {
   display: inline-block;
 }
 
+.modal {
+  color: rgba(240, 240, 240, 1.0);
+  padding: 180px;
+  background-color: rgba(50, 50, 50, 0.7);
+}
+
+.close {
+  color: white !important;
+  opacity: 0.8 !important;
+}
+
+.modal-header {
+  background-color: rgba(40, 40, 40, 0.4);
+}
+
 @media screen and (max-width: 600px) {
   .title {
     font-size: 150px;
