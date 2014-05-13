@@ -1,7 +1,9 @@
 <div class="show-box">
   <div class="event-photo-large">
-    <%if @event.photo.url %>
-    <%= image_tag @event.photo.url(:large) %>
+    <%if @event.genre == 'Concert' %>
+      <%= image_tag "floyd.jpg" %>
+    <% else %>
+      <%= image_tag @event.photo.url(:large) %>
     <% end %>
   </div>
   <h2><%= @event.name %></h2>
@@ -32,9 +34,10 @@
     <%= button_to('Include', selected_events_path(event_id: @event.id), class: 'btn btn-large btn-primary') %>
   <% end %>
 
-  <%= link_to('Edit event', edit_event_path(@event), class: 'btn btn-large btn-primary')  %>
+  
   <% if current_user.id == @event.user_id %>
-   <%= button_to('Delete Event', event_path(@event), class: 'btn btn-large btn-primary', method: :delete, data: {confirm: 'Are you sure?' }) %>
+    <%= link_to('Edit event', edit_event_path(@event), class: 'btn btn-large btn-primary')  %>
+    <%= button_to('Delete Event', event_path(@event), class: 'btn btn-large btn-primary', method: :delete, data: {confirm: 'Are you sure?' }) %>
  <% end %>
 <% end %>
 </div>
