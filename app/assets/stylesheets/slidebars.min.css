@@ -1,4 +1,58 @@
 /* Slidebars 0.9.4 - http://plugins.adchsm.me/slidebars/ Written by Adam Smith - http://www.adchsm.me/ Released under MIT License - http://plugins.adchsm.me/slidebars/license.txt */
+.sb-toggle-left, .sb-toggle-right, .sb-open-left, .sb-open-right, .sb-close {
+  color: #C0C7F2 !important;
+  text-shadow: none !important;
+  /*display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;*/
+  padding-top: 15px;
+}
+
+.sb-toggle-left:hover {
+  color: #AD1283 !important;
+}
+
+.sb-toggle-right:hover {
+  color: #AD1283 !important;
+}
+
+.sb-close:hover {
+  color: #AD1283 !important;
+}
+
+
+.sb-toggle-left, .sb-toggle-right, .sb-close {
+  cursor: pointer;
+}
+
+
+.sidebar {
+  text-align: left;
+  padding-left: 0px;
+} 
+
+.sidebar li {
+  padding-top: 15px;
+  font-size: 18px;
+}
+
+.sidebar li a {
+  color:#ECEEF7;
+}
+
+.sidebar li a:hover {
+  color:#AD1283 ; 
+}
+
+.sidebar li:hover {
+  background-color: #7C83B2;
+  color:red ;
+  border-radius: 2px;
+  width:100%;
+}
+
+
+
 html,body,#sb-site,.sb-slidebar{
   margin:0;
   padding:0;
@@ -26,7 +80,8 @@ body{
   width:100%;
   position:relative;
   z-index:1;
-  background-color:#fff
+  background-color:#fff;
+  height:100%;
   }
 
 .sb-slidebar{

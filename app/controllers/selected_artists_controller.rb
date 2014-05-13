@@ -2,7 +2,7 @@ class SelectedArtistsController < ApplicationController
 
   def index
     if user_signed_in?
-      @selected_artists = SelectedArtist.all
+      @events = Event.search(params[:search])
     else
       redirect_to events_path, notice: 'stop trying to break my site, naughty developer!'
     end
