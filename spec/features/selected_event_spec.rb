@@ -13,12 +13,12 @@ feature 'Select Events' do
 
     scenario 'when I have selected events' do
       visit '/selected_events'
-      expect(page).to have_text("Well aren't these selected_events just the coolest thing")
+      expect(page).to have_text("Upcoming Events")
     end
 
     scenario 'when I have not selected events' do
       visit '/selected_events'
-      expect(page).to have_text("Oh no! It seems you dont have any selected events, go and find some!!!")
+      expect(page).to have_text("Oh no! It seems you dont have any selected events, go and find some!")
     end
 
   end
@@ -27,7 +27,7 @@ feature 'Select Events' do
 
     scenario 'I should be redirected if I try to get to the selected users path' do
       visit '/selected_events'
-      
+      expect(page).to have_text("naughty developer")
     end
 
   end

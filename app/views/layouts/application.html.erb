@@ -42,7 +42,7 @@
             <ul class="nav navbar-nav">
               <li><%= link_to 'Home', events_path %></a></li>
               <% if user_signed_in? %>
-              <li><%= link_to 'Your created events', user_events_path %></li>
+              <li><%= link_to 'Your Created Events', user_events_path %></li>
               <li><%= link_to 'Upcoming Events', selected_events_path %></li>
               <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
               <% else %>

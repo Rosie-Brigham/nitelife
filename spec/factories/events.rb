@@ -4,7 +4,7 @@ FactoryGirl.define do
     name 'big night'
     genre 'classical'
     venue 'the barbican'
-    artist 'faure'
+    association :artist
     description 'a performance of the faure requiem'
     url 'barbican.co.uk'
     email 'barbican@barbican.co.uk'
