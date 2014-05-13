@@ -43,18 +43,20 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li>
-              <li><%= link_to 'All Events', events_path %></a></li>
               <% if user_signed_in? %>
-              <li><%= link_to 'Your Created Events', user_events_path %></li>
-              <li><%= link_to 'Upcoming Events', selected_events_path %></li>
-              <li><%= link_to 'Selected Artist Events', selected_artists_path %></li>
-              <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-              <% else %>
-              <li><%= link_to('Login', new_user_session_path)  %></li>
+                <li class="sb-toggle-left">My Stuff</li>
+                <!-- <li class="sb-close">Go away stuff!!!</li>          -->
               <% end %> 
             </ul>
             <form class="navbar-form navbar-right" role="search">
+              <ul class="nav navbar-nav">
+                <li><%= link_to 'Home', events_path %></a></li>
+                <% if user_signed_in? %>
+                  <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+                  <% else %>
+                  <li><%= link_to('Login', new_user_session_path)  %></li>
+                <% end %> 
+              </ul>
               <div class="form-group">
                 <%=form_tag events_path, :method => 'get' do %>
                 <%= text_field_tag(:search, params[:search], class: 'form-control') %>
@@ -73,21 +75,13 @@
     <% if alert %>
       <h4 class="alert"><%= alert %></h4>
     <% end %>
-
-    <% if user_signed_in? %>
-      <div id="sb-site">
-        <ul>
-          <li class="sb-toggle-left">My Stuff</li>
-          <li class="sb-close">Go away stuff!!!</li>
-         </ul>
-    <% end %>
       
-          
     <div class="sb-slidebar sb-left">
       <ul class="sidebar">
         <% if user_signed_in? %>
           <li><%= link_to 'Your Created Events', user_events_path %></li>
           <li><%= link_to 'Upcoming Events', selected_events_path %></li>
+          <li><%= link_to 'Selected Artist Events', selected_artists_path %></li>
         <% else %>
           <div class='note'>How did you get this open? naught developer!</div>
         <% end %> 
