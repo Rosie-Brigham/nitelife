@@ -46,7 +46,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'pry'
-
 end
 
 group :test do
