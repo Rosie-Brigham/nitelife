@@ -12,10 +12,46 @@
  *= require_tree .
  */
 
+.sidebar {
+  text-align: left;
+  padding-left: 0px;
+} 
+
+.sidebar li {
+  padding-top: 15px;
+  font-size: 18px;
+}
+
+.sidebar li a {
+  color:#ECEEF7;
+}
+
+.sidebar li a:hover {
+  color:#AD1283 ; 
+}
+
+.sidebar li:hover {
+  background-color: #7C83B2;
+  color:red ;
+  border-radius: 2px;
+  width:100%;
+}
+
+.alert {
+  padding: 0px;
+  margin: 0px;
+  color:#ECEEF7;
+}
+
+.notice {
+  padding: 0px;
+  margin: 0px;
+  color:#ECEEF7
+}
 body {
     text-align: center;
 		padding: 0px;
-		background-color: #ECEEF7 !important;
+		background-color: #0A0021 !important;
 		src:url('');
 	}
 
@@ -47,6 +83,7 @@ body {
 
 .navbar {
 	border: none !important;
+  height: 50px;
 }
 
 .container-fluid {
