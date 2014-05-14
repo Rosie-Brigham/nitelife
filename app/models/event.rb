@@ -11,6 +11,7 @@ class Event < ActiveRecord::Base
   validates :time, presence: true
   validates :venue, presence: true
   validate :must_be_valid_date 
+  validates :last_id, uniqueness: true
   
   validate :date_cannot_be_in_past
   

@@ -11,9 +11,9 @@ describe SelectedEvent do
   end
 
   describe '#ready for reminder' do
-    let(:futures) {FactoryGirl.create(:future_selected_event)}
-    let(:future) {FactoryGirl.create(:future_event)}
-    let(:ouchdate) {FactoryGirl.create(:out_of_date_event)}
+    # let(:futures) {FactoryGirl.create(:future_selected_event)}
+    # let(:future) {FactoryGirl.create(:future_event)}
+    # let(:ouchdate) {FactoryGirl.create(:out_of_date_event)}
 
 
     it 'is false when the event was yesterday' do
@@ -42,14 +42,14 @@ describe SelectedEvent do
 
   describe '#send_reminder_emails' do
     it "gathers today's reminders" do
-      FactoryGirl.create(:selected_event)
-      FactoryGirl.create(:selected_event)
+      FactoryGirl.create(:different_selected_event)
+      FactoryGirl.create(:another_selected_event)
       FactoryGirl.create(:future_selected_event)
-
+      
       expect {
         SelectedEvent.send_reminder_emails
       }.to change {ActionMailer::Base.deliveries.count }.by(3)
-      # this includes the let! at the top
+      # this includes the let! at the top, which is why its 3, not two
 
     end
   end
