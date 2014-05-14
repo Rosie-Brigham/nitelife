@@ -5,7 +5,11 @@ class LastfmScraper
     entry_point = URL + '/events'
     @doc = Nokogiri::HTML(open(entry_point))
 
-    @doc.css("table.eventsMedium tr .detail a").each do |node|
+    # last_id = testdoc.css(".eventsMedium tr")
+    # my_array =  last_id.map{|object| object.attributes['id']}
+
+    @doc.css("table.eventsMedium tr .detail a").each_with_index do |node, i|
+      # id = my_array[i]
       artist_class = Artist.new
       event = Event.new
       eventpath = node.first[1]
