@@ -16,7 +16,11 @@
   <%= f.text_field :name, placeholder: "Event Name" %>
 
   <%= f.label :artist %>
-  <%= f.text_field :artist, placeholder: "Artist Playing" %>
+  <% if @event.errors.any? %>
+    <%= f.text_field :artist, placeholder: "Artist Playing", value: @event.artist.name %>
+  <% else %>
+    <%= f.text_field :artist, placeholder: "Artist Playing" %>
+  <% end %>
   
   <%= f.label :genre %>
   <%= f.text_field :genre, placeholder: "Genres" %>

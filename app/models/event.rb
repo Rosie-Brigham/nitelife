@@ -4,14 +4,16 @@ class Event < ActiveRecord::Base
   belongs_to :user
   belongs_to :artist
 
+
+  before_validation :smart_add_url_protocol
   validates :name, presence: true
   validates :genre, presence: true
   validates :artist, presence: true
   validates :date, presence: true 
   validates :time, presence: true
   validates :venue, presence: true
-  validate :must_be_valid_date 
-  
+  validates :url, :format => URI::regexp(%w(http https))
+  validate :must_be_valid_date  
   validate :date_cannot_be_in_past
   
   has_attached_file :photo, :styles => { 
@@ -27,6 +29,12 @@ class Event < ActiveRecord::Base
       where(['name LIKE ? OR genre LIKE ? OR artist LIKE ? OR venue LIKE ?', "%#{search}%", "%#{search}%" , "%#{search}%" , "%#{search}%"] )
     else
       all.latest
+    end
+  end
+
+  def smart_add_url_protocol
+    unless self.url[/\Ahttp:\/\//] || self.url[/\Ahttps:\/\//]
+      self.url = "http://#{self.url}"
     end
   end
 
