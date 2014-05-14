@@ -24,20 +24,20 @@
   <p>Date: <%= @event.date %></p>
   <p>Time: <%= @event.time %></p>
   <p>Genre: <%= @event.genre %></p>
-  <p>Info: <a href=http://<%= @event.url %>><%= @event.url %></a>  <%= @event.email %></p>    
+  <p>Info: <a href='<%= @event.url %>'><%= @event.url %></a>  <%= @event.email %></p>    
 
-<% if user_signed_in? %>  
-  <% if current_user.events.include?(@event) %>
+<% if user_signed_in? %> 
+  <% if current_user.interested_events.include?(@event) %>
     <p>You've already selected this event.</p>
   <% else %>
     <h4>Like the look of this event? Add it to your 'Selected Events' feed!!</h4>
     <%= button_to('Include', selected_events_path(event_id: @event.id), class: 'btn btn-large btn-primary') %>
   <% end %>
 
-  
   <% if current_user.id == @event.user_id %>
-    <%= link_to('Edit event', edit_event_path(@event), class: 'btn btn-large btn-primary')  %>
-    <%= button_to('Delete Event', event_path(@event), class: 'btn btn-large btn-primary', method: :delete, data: {confirm: 'Are you sure?' }) %>
+  <%= link_to('Edit event', edit_event_path(@event), class: 'btn btn-large btn-primary')  %>
+   <%= button_to('Delete Event', event_path(@event), class: 'btn btn-large btn-primary', method: :delete, data: {confirm: 'Are you sure?' }) %>
+
  <% end %>
 <% end %>
 </div>
