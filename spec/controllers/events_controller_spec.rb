@@ -108,7 +108,7 @@ let(:event) {FactoryGirl.create(:event, user: user)}
       end
 
       it 'does not let you delete events that are not yours' do
-        different_event = FactoryGirl.create(:event)
+        different_event = FactoryGirl.create(:event, last_id: '23')
         expect {
           delete :destroy, id: different_event.id
         }.to_not change{Event.count}

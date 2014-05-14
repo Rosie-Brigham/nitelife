@@ -10,4 +10,14 @@ FactoryGirl.define do
     association :event, factory: :future_event
     association :user
   end
+
+  factory :different_selected_event, class: SelectedEvent do
+    association :event, factory: :different_last_id_event
+    association :user
+  end
+
+  factory :another_selected_event, class: SelectedEvent do
+    association :event, factory: :another_last_id_event
+    association :user
+  end
 end
