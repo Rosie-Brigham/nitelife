@@ -13,8 +13,9 @@ class Event < ActiveRecord::Base
   validates :time, presence: true
   validates :venue, presence: true
   validate :must_be_valid_date 
-  validates :last_id, uniqueness: true
+  validates :lastfm_id, uniqueness: true
   validates :url, :format => URI::regexp(%w(http https)) 
+
 
   validate :date_cannot_be_in_past
   

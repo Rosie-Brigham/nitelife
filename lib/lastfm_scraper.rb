@@ -5,14 +5,16 @@ class LastfmScraper
     entry_point = URL + '/events'
     @doc = Nokogiri::HTML(open(entry_point))
 
-    # last_id = testdoc.css(".eventsMedium tr")
-    # my_array =  last_id.map{|object| object.attributes['id']}
-
-    @doc.css("table.eventsMedium tr .detail a").each_with_index do |node, i|
-      # id = my_array[i]
-      artist_class = Artist.new
-      event = Event.new
-      eventpath = node.first[1]
+    @doc.css("table.eventsMedium tr").each do |row_node|
+      lastfm_id = row_node.attributes["id"].to_s
+      next if Event.find_by(lastfm_id: lastfm_id)
+      event = Event.new  
+      event.lastfm_id = lastfm_id
+      
+      node = row_node.css(".detail a")
+      next if node.empty?
+      eventpath = node.first["href"]
+      eventurl = URL + eventpath
    
       # now... we need to visit each of the individual sites and scrape the info from there to!
       eventurl = URL + eventpath
@@ -25,10 +27,8 @@ class LastfmScraper
         artist_name = eventdoc.css(".page-head.without-crumbtrail h1").text
       end
 
-      artist_class.name = artist_name
-      artist_class.save
-        
-      event.artist_id = artist_class.id
+      event.artist = Artist.find_or_create_by(name: artist_name)
+
       event.name = artist_name
 
       # gets the venue

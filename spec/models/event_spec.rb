@@ -46,7 +46,7 @@ describe Event do
 
     it 'cannot save the same event twice' do
       # require 'pry';binding.pry
-      subject.should have(1).errors_on(:last_id)
+      subject.should have(1).errors_on(:lastfm_id)
     end
   end
 
