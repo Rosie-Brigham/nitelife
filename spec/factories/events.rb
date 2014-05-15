@@ -6,7 +6,7 @@ FactoryGirl.define do
     venue 'the barbican'
     association :artist
     description 'a performance of the faure requiem'
-    url 'barbican.co.uk'
+    url 'http://www.barbican.co.uk'
     email 'barbican@barbican.co.uk'
     date { Date.tomorrow }
     time '7:30pm'

@@ -26,7 +26,7 @@ let(:event) {FactoryGirl.create(:event, user: user)}
       describe "with valid params" do
         it "save a record" do
           expect {
-            post :create, event: {name: "FWD", genre: 'bass', artist: 'sophie', date: '10/10/2014', time: '14', venue: "dance tunnel" }
+            post :create, event: {name: "FWD", genre: 'bass', artist: 'sophie', date: '10/10/2014', time: '14', venue: "dance tunnel", url: 'http://www.ilovefwd.com' }
           }.to change{ Event.count }.from(0).to(1)        
         end
       end
