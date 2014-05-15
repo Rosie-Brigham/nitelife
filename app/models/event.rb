@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
   belongs_to :artist
 
 
-  before_validation :smart_add_url_protocol
+  before_save :smart_add_url_protocol
   validates :name, presence: true
   validates :genre, presence: true
   validates :artist, presence: true
