@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
   belongs_to :artist
 
 
-  before_save :smart_add_url_protocol
+  before_validation :smart_add_url_protocol
   validates :name, presence: true
   validates :genre, presence: true
   validates :artist, presence: true
@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
   validates :time, presence: true
   validates :venue, presence: true
   validate :must_be_valid_date 
-  validates :lastfm_id, uniqueness: true
+  validates :lastfm_id, uniqueness: true, allow_nil: true
   validates :url, :format => URI::regexp(%w(http https)) 
 
 
