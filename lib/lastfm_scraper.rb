@@ -7,15 +7,17 @@ class LastfmScraper
 
     @doc.css("table.eventsMedium tr").each do |row_node|
       lastfm_id = row_node.attributes["id"].to_s
-      next if Event.find_by(lastfm_id: lastfm_id)
+      
       event = Event.new  
       event.lastfm_id = lastfm_id
-      
+
+      next if Event.find_by(lastfm_id: lastfm_id)
+
       node = row_node.css(".detail a")
       next if node.empty?
       eventpath = node.first["href"]
       eventurl = URL + eventpath
-   
+      
       # now... we need to visit each of the individual sites and scrape the info from there to!
       eventurl = URL + eventpath
       eventdoc = Nokogiri::HTML(open(eventurl))
