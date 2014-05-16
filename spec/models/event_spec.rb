@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Event do
 
   describe "validations" do
-    it "validates the presence of a event name" do
+    it "validates the presence of an event name" do
       subject.should have(1).error_on(:name)
     end
 
@@ -32,6 +32,8 @@ describe Event do
       subject.should have(1).error_on(:time)
     end
 
+    it
+
   end
 
   describe 'unquie validations' do
@@ -45,7 +47,6 @@ describe Event do
     subject {FactoryGirl.build(:event)}
 
     it 'cannot save the same event twice' do
-      # require 'pry';binding.pry
       subject.should have(1).errors_on(:lastfm_id)
     end
   end
