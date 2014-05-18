@@ -1,14 +1,16 @@
-<div class="event-box">
-  <div class="event-photo">
+<%= stylesheet_link_tag "selected_events", :media => "all" %> 
+
+<div class="selected_event_box">
+  <div class="selected-event-photo">
     <% if event.photo_url %>
       <img src="<%= event.photo_url %>" >
     <% else %>
       <%= image_tag event.photo.url(:strip) %>
     <% end %>
   </div>
-  <div class="event-name">
+  <div class="selected-event-name">
     <h2><%= link_to event.name, event_path(event) %></h2>
-      <div id='event-info'>
+      <div id='selected-event-info'>
         <h3><%= event.artist.name %></h3>
         <p><%= event.venue %></p>
         <p><%= event.date %> - <%= event.time %></p>
