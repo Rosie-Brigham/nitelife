@@ -1,4 +1,16 @@
-<h2>Your created events</h2>
+<div class="description">
+	<h3>Your created events</h3>
+	<p id="desc">This page lists all the events that you have registered in order to keep track.<br>
+	In order to edit a previously saved event, click on the title and the 'edit' option</p>
+	<div class="quote">
+		<p><em>"And <strong>hand in hand</strong> on the edge of the sand</p>
+		<p><strong>They danced</strong> in the light of the moon"</em></p>
+		<p> Edward Lear, <em>The Owl and the Pussycat</em></p>
+	</div>
+</div>
+
+
+<h2></h2>
 <h3><%= link_to 'Add an event', new_event_path %></h3>
   <% @users_events.each do |event| %>
     <% if event.date >= Date.today %>
