@@ -1,0 +1,109 @@
+// Place all the styles related to the SelectedEvents controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.selected_event_box {
+  background-color: #007A7A;
+  color: #600046;
+  width: 80%;
+  text-align: left;
+  margin-left: 10%;
+  margin-right: 8px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.selected_event_box:hover {
+  background-color:#AD1283;
+}
+
+.selected-event-photo img {
+  width: 250px;
+  height: auto;
+  opacity: 0.4;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#selected-event-info {
+  color: #100033;
+  position: absolute;
+  left:255px;
+  top:40px;
+}
+
+.selected-event-name a {
+  z-index:100;
+  color: #0A0021;
+  font-size: 40px;
+  font-weight: bold; 
+  float: left;
+  position: absolute;
+  left:30px;
+  top:10px;
+}
+
+.selected-event-name a:hover {
+  color: #BAA226;
+}
+
+.are_you_sure {
+  display: none;
+}
+.event-photo-large img {
+  width: 100%;
+  height: auto;
+  opacity: 0.3;
+  position: absolute;
+  left: 0;
+  z-index: -99;
+}
+
+
+
+/*for selected events only - find out how!!*/
+/*div#sb-site {
+  background-color: #E8DCEB;
+}
+
+body {
+  background-color: #0A0021 !important;
+  }
+
+.header {
+  background-color: #0A0021;
+}
+
+.navbar {
+  border: 5px;
+  height: 50px;
+}
+
+.container-fluid {
+  background-color: #33042B;
+}
+
+.tnav .navbar .container { 
+  height: 28px; 
+  background-color: orange;
+}
+
+.navbar-default .navbar-nav a {
+  color: #C0C7F2 !important;
+  text-shadow: none !important;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: #AD1283 !important;
+}
+
+.footer {
+  background-color: #33042B;
+}
+*/
