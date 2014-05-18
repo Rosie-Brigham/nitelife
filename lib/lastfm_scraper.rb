@@ -59,8 +59,9 @@ class LastfmScraper
       event.time = DateTime.parse(time)
       
       event.genre = 'Concert'
-      event.save!
-      puts "just saved #{event.name} on at #{event.date}:#{event.time.hour}"
+      unless event.save!
+        puts "Didn't saved #{event.name}"
+      end
      end
    end
 end

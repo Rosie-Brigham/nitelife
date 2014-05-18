@@ -3,9 +3,8 @@
 <head>
   <title>NiteLife</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <!-- TODO - ANOTHER ATTEMPT AT FONTS. -->
-  <!-- <link href='http://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'> -->
-  <%= stylesheet_link_tag    "application", media: "all" %>
+
+  <%= stylesheet_link_tag    "normal/application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
@@ -18,56 +17,15 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
+</head?
 
 
   <body>
-    <div class="header" style="font-family: 'Cabin', sans-serif">
-      <div class="title">NiteLife</div>
-        <canvas id="canvas" width="1400" height="200">
-        </canvas>
-        <% javascript_include_tag 'canvas_scroll.js' %>
-    </div>
-      
-    <div class="navbar">
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
+    
+    <%= render 'layouts/header' %>
+  
+    <%= render 'layouts/sidebar' %>
 
-              <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <% if user_signed_in? %>
-                <li class="sb-toggle-left">My Stuff</li>
-                <!-- <li class="sb-close">Go away stuff!!!</li>          -->
-              <% end %> 
-            </ul>
-            <form class="navbar-form navbar-right" role="search">
-              <ul class="nav navbar-nav">
-                <li><%= link_to 'Home', events_path %></a></li>
-                <% if user_signed_in? %>
-                  <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-                  <% else %>
-                  <li><%= link_to('Login', new_user_session_path)  %></li>
-                <% end %> 
-              </ul>
-              <div class="form-group">
-                <%=form_tag events_path, :method => 'get' do %>
-                <%= text_field_tag(:search, params[:search], class: 'form-control') %>
-              </div>
-                <%= submit_tag("Search", :name => nil, class: "btn") %>
-                <% end %>
-            </form>
-          </div><!-- /.navbar-collapse -->
-        </div> 
-      </nav> 
-    </div>
     <% if notice %>
       <h4 class="notice"><%= notice %></h4>
     <% end %>
@@ -76,35 +34,11 @@
       <h4 class="alert"><%= alert %></h4>
     <% end %>
 
-    <div class="sb-slidebar sb-left">
-      <ul class="sidebar">
-        <% if user_signed_in? %>
-          <li><%= link_to 'Your Created Events', user_events_path %></li>
-          <li><%= link_to 'Upcoming Events', selected_events_path %></li>
-          <li><%= link_to 'Selected Artist Events', selected_artists_path %></li>
-        <% else %>
-          <div class='note'>How did you get this open? naught developer!</div>
-        <% end %> 
-      </ul>
-    </div>
-    
-
-    <%= yield %>   
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    
-    <%= javascript_include_tag 'slidebars.min.js' %>
-    <script>
-      (function($) {
-        $(document).ready(function() {
-          $.slidebars();
-        });
-      }) (jQuery);
-    </script>
+    <%= yield %>
 
     <div class="footer">
       <p>NiteLife</p>
     </div>
         
   </body>
-  </html>
+</html>

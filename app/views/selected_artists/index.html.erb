@@ -1,14 +1,20 @@
-<h2>Upcoming Events from your favourite Artists</h2>
+<h2>Your favourite Artists</h2>
+ 
+<p> Track your favourite Artists here, and never miss them live again, its that simple <p>
 
-<div class="event_box">
 
+<div class="event_box_artists">
   <% unless current_user.artist_events.any?  %>
     <div class="warning">
        <h4>Oh no! It seems you dont have any selected artists, go and find some!</h4>
     </div>
   <% else %>
     <% current_user.artist_events.each do |event| %>
-      <%= render event %>
-    <% end %>
+      <% if event.date >= Date.today %>
+      <div class"event-box">
+      	<%= render event %>
+      	</div>
+      <% end %>
+  	<% end %>
   <% end %>
 </div>
