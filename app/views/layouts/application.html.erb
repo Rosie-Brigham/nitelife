@@ -17,7 +17,7 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-</head?
+</head>
 
 
   <body>
@@ -35,9 +35,17 @@
     <% end %>
 
     <%= yield %>
+    <script type="text/javascript">
+       $(window).load(function() {
+          $('.button').raptorize({
+            'enterOn' : 'click', //timer, konami-code, click
+            'delayTime' : 5000 //time before raptor attacks on timer mode
+       });
+    });
+    </script>
 
     <div class="footer">
-      <p>NiteLife</p>
+      <p><a href="#" class="button">NiteLife</a></p>
     </div>
         
   </body>
