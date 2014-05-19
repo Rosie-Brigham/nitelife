@@ -3,22 +3,22 @@
   <div class="event-photo-large">
     <div>
       <%if @event.genre == 'Concert' %>
-        <%= image_tag "floyd.jpg" %>
+      <%= image_tag "floyd.jpg" %>
       <% else %>
-        <%= image_tag @event.photo.url(:large) %>
+      <%= image_tag @event.photo.url(:large) %>
       <% end %>
     </div>
     <%= @event.name %>
-      <h3>Artists: <%= @artist.name %></h3>
+    <h3>Artists: <%= @artist.name %></h3>
     <% if user_signed_in? %>
-      <% if current_user.artists.include?(@artist) %>
-        <p> You are currently following this artist</p>
-      <% else %>
-        <%= button_to 'Follow Artist', selected_artists_path(artist_id: @event.artist_id) %>
-      <% end %>
+    <% if current_user.artists.include?(@artist) %>
+    <p> You are currently following this artist</p>
+    <% else %>
+    <%= button_to 'Follow Artist', selected_artists_path(artist_id: @event.artist_id) %>
+    <% end %>
     <% end %>
     <div class="event-description">
-    
+      
       <p>
         Description: <%= @event.description %>
       </p>
@@ -27,36 +27,39 @@
     <p>Date: <%= @event.date.strftime("%m/%d/%Y") %></p>
     <p>Time: <%= @event.time.strftime("%I:%M%p") %></p>
     <% unless @event.genre == "Concert" %>
-      <p>Genre: <%= @event.genre %></p>
+    <p>Genre: <%= @event.genre %></p>
     <% end %>
-    <p>Info: <a href='<%= @event.url %>'><%= @event.url %></a>  <%= @event.email %></p></span> 
+    <p>Info: <a href='<%= @event.url %>'><%= @event.url %></a>,  <%= @event.email %></p></span> 
   </div>
 
   <div class='demo-area'>
-    <p>Copy details to your clipboard</p>
     <button class='my_clip_button' data-clipboard-target='fe_text' data-clipboard-text='Default clipboard text from attribute' id='d_clip_button' title='Click me to copy to clipboard.'>
-    <b>Copy</b>
-    </button>
-  <div>
-  
-  <% if user_signed_in? %> 
-    <% if current_user.interested_events.include?(@event) %>
+      <b>Copy</b>
+    </button> details to your clipboard
+    <div>
+      
+      <% if user_signed_in? %> 
+      <% if current_user.interested_events.include?(@event) %>
       <p>You've already selected this event.</p>
-    <% else %>
-      <h4>Like the look of this event? Add it to your 'Selected Events' feed!!</h4>
-      <%= button_to('Include', selected_events_path(event_id: @event.id), class: 'btn btn-large btn-primary') %><br>
-    <% end %>
+      <% else %>
+      <ul>
+        <li><h4>Like the look of this event? Add it to your feed</h4>
+          <%= button_to('Include', selected_events_path(event_id: @event.id), class: 'btn btn-large btn-primary') %></li>
 
-    <% if current_user.id == @event.user_id %>
-    <ul>
-      <li><%= link_to('Edit event', edit_event_path(@event), class: 'btn btn-large btn-primary')  %></li>
-      <li><%= button_to('Delete Event', event_path(@event), class: 'btn btn-large btn-primary', method: :delete, data: {confirm: 'Are you sure?' })%></li>
-    </ul>
-   <% end %>
-  <% end %>
-</div>
+          <% end %>
 
-<%= link_to 'Back', events_path %>
+          <% if current_user.id == @event.user_id %>
+          
+          <li><%= link_to('Edit', edit_event_path(@event), class: 'btn btn-large btn-primary')  %></li>
+          <li><%= button_to('Delete', event_path(@event), class: 'btn btn-large btn-primary', method: :delete, data: {confirm: 'Are you sure?' })%></li>
+        </ul>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= link_to 'Back', events_path %>
 
 
   <script>
