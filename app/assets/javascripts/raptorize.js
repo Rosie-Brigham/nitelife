@@ -34,16 +34,14 @@
       }
 
       //Raptor Vars
-      var raptorImageMarkup = '<img id="elRaptor" style="display: none" src="<%= image_path("raptor.png") %>" />'
-      var raptorAudioMarkup = '<audio id="elRaptorShriek" preload="auto">' +
-        '<source src="<%= asset_path("raptor-sound.mp3") %>" />' +
-        '<source src="<%= asset_path("raptor-sound.ogg") %>" />' +
-        '</audio>';
+      // var raptorImageMarkup = '<img id="elRaptor" style="display: none" src="<%= image_tag "raptor.jpg" %>" />''
+      // var raptorAudioMarkup = '<audio id="elRaptorShriek" preload="auto">' +
+      //   '<source src="<%= asset_path("raptor-sound.mp3") %>" />' +
+      //   '<source src="<%= asset_path("raptor-sound.ogg") %>" />' +
+      //   '</audio>';
       var locked = false;
 
       //Append Raptor and Style
-      $('body').append(raptorImageMarkup);
-      if(audioSupported) { $('body').append(raptorAudioMarkup); }
       var raptor = $('#elRaptor').css({
         "position":"fixed",
         "bottom": "-700px",
@@ -56,19 +54,20 @@
         locked = true;
 
         //Sound Hilarity
-        if(audioSupported) {
-          function playSound() {
-            var sound = document.getElementById('elRaptorShriek');
-            sound.load();
-            sound.play();
-          }
-          playSound();
-        }
+        // if(audioSupported) {
+        //   function playSound() {
+        //     var sound = document.getElementById('elRaptorShriek');
+        //     sound.load();
+        //     sound.play();
+        //   }
+        //   playSound();
+        // }
 
         // Movement Hilarity
         raptor.animate({
           "bottom" : "0"
         }, function() {
+          console.log("Fired")
           $(this).animate({
             "bottom" : "-130px"
           }, 100, function() {

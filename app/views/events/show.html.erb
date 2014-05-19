@@ -1,4 +1,5 @@
 <div class="show-box">
+  
   <div class="event-photo-large">
     <div>
       <%if @event.genre == 'Concert' %>
@@ -16,7 +17,7 @@
         <%= button_to 'Follow Artist', selected_artists_path(artist_id: @event.artist_id) %>
       <% end %>
     <% end %>
-    <div class="description">
+    <div class="event-description">
     
       <p>
         Description: <%= @event.description %>
@@ -25,11 +26,11 @@
     <p>Venue: <%= @event.venue %></p>
     <p>Date: <%= @event.date.strftime("%m/%d/%Y") %></p>
     <p>Time: <%= @event.time.strftime("%I:%M%p") %></p>
-    <p>Genre: <%= @event.genre %></p>
+    <% unless @event.genre == "Concert" %>
+      <p>Genre: <%= @event.genre %></p>
+    <% end %>
     <p>Info: <a href='<%= @event.url %>'><%= @event.url %></a>  <%= @event.email %></p></span> 
   </div>
-<<<<<<< HEAD
-
 
   <div class='demo-area'>
     <p>Copy details to your clipboard</p>
@@ -38,6 +39,26 @@
     </button>
   <div>
   
+  <% if user_signed_in? %> 
+    <% if current_user.interested_events.include?(@event) %>
+      <p>You've already selected this event.</p>
+    <% else %>
+      <h4>Like the look of this event? Add it to your 'Selected Events' feed!!</h4>
+      <%= button_to('Include', selected_events_path(event_id: @event.id), class: 'btn btn-large btn-primary') %><br>
+    <% end %>
+
+    <% if current_user.id == @event.user_id %>
+    <ul>
+      <li><%= link_to('Edit event', edit_event_path(@event), class: 'btn btn-large btn-primary')  %></li>
+      <li><%= button_to('Delete Event', event_path(@event), class: 'btn btn-large btn-primary', method: :delete, data: {confirm: 'Are you sure?' })%></li>
+    </ul>
+   <% end %>
+  <% end %>
+</div>
+
+<%= link_to 'Back', events_path %>
+
+
   <script>
     $(document).ready(function() {
       var clip = new ZeroClipboard($("#d_clip_button"))
@@ -47,22 +68,3 @@
       $("#testarea").val("");
     });
   </script>  
-
-<% if user_signed_in? %> 
-  <% if current_user.interested_events.include?(@event) %>
-    <p>You've already selected this event.</p>
-  <% else %>
-    <h4>Like the look of this event? Add it to your 'Selected Events' feed!!</h4>
-    <%= button_to('Include', selected_events_path(event_id: @event.id), class: 'btn btn-large btn-primary') %><br>
-  <% end %>
-
-  <% if current_user.id == @event.user_id %>
-  <%= link_to('Edit event', edit_event_path(@event), class: 'btn btn-large btn-primary')  %><br>
-   <%= button_to('Delete Event', event_path(@event), class: 'btn btn-large btn-primary', method: :delete, data: {confirm: 'Are you sure?' })%><br>
- <% end %>
-<% end %>
-</div>
-
-<%= link_to 'Back', events_path %>
-
-<script type="text/javascript" src="ZeroClipboard.js"></script>
