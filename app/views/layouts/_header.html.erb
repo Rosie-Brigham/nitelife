@@ -1,45 +1,41 @@
 <div class="header" style="font-family: 'Cabin', sans-serif">
-      <div class="title">NiteLife</div>
-        <canvas id="canvas" width="1400" height="200">
-        </canvas>
-
-    </div>
-      
-    <div class="navbar">
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-
-              <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+  <div class="title">NiteLife</div>
+    <canvas id="canvas" width="1400" height="200">
+    </canvas>
+</div>
+<div class="navbar">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <div class="sr-only">Toggle navigation</div>
+            <div class="icon-bar"></div>
+            <div class="icon-bar"></div>
+            <div class="icon-bar"></div>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <li class="sb-toggle-left">My Stuff</li>
+          <% end %> 
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Home', events_path %></a></li>
+          <% if user_signed_in? %>
+            <li><%= button_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+          <% else %>
+            <li><%= link_to('Login', new_user_session_path)  %></li>
+          <% end %> 
+        </ul>
+        <%=form_tag events_path, :method => 'get', class: "navbar-form navbar-right", role: "search" do %>
+          <div class="form-group">
+            <%= text_field_tag(:search, params[:search], class: 'form-control') %>
+            <%= submit_tag("Search", :name => nil, class: "btn") %>
           </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <% if user_signed_in? %>
-                <li class="sb-toggle-left">My Stuff</li>
-                <!-- <li class="sb-close">Go away stuff!!!</li>          -->
-              <% end %> 
-            </ul>
-              <ul class="nav navbar-nav">
-                <li><%= link_to 'Home', events_path %></a></li>
-                <% if user_signed_in? %>
-                  <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-                  <% else %>
-                  <li><%= link_to('Login', new_user_session_path)  %></li>
-                <% end %> 
-              </ul>
-              <%=form_tag events_path, :method => 'get', class: "navbar-form navbar-right", role: "search" do %>
-                <div class="form-group">
-                  <%= text_field_tag(:search, params[:search], class: 'form-control') %>
-                  <%= submit_tag("Search", :name => nil, class: "btn") %>
-                </div>
-              <% end %>
-          </div><!-- /.navbar-collapse -->
-        </div> 
-      </nav> 
-    </div>
+        <% end %>
+      </div>
+    </div> 
+  </nav> 
+</div>
