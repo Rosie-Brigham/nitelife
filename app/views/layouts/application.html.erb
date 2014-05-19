@@ -3,7 +3,7 @@
 <head>
   <title>NiteLife</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <%= stylesheet_link_tag    "normal/application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -35,18 +35,11 @@
     <% end %>
 
     <%= yield %>
-    <script type="text/javascript">
-       $(window).load(function() {
-          $('.button').raptorize({
-            'enterOn' : 'click', //timer, konami-code, click
-            'delayTime' : 5000 //time before raptor attacks on timer mode
-       });
-    });
-    </script>
 
     <div class="footer">
-      <p><a href="#" class="button">NiteLife</a></p>
+      <p><a href="#" id="buttonx">NiteLife</a></p>
     </div>
-        
+    <%= image_tag "raptor.png", :id => "elRaptor", :style => "display:none" %>
+     <!-- <img id="elRaptor" style="display: none" src="" /> -->
   </body>
 </html>
