@@ -32,9 +32,13 @@
     <% end %>
 
     <%= yield %>
+    <div id="message"></div>
+<%= image_tag "python_foot.png", :id => "python", :style => "display:none" %>
+              
+
 
     <div class="footer">
-      <p><a href="#" id="buttonx">NiteLife</a></p>
+      <p><a href="#" id="buttonx">NiteLife</a><%= image_tag('note.png', :alt => 'banana logo', :class => 'banana') %></p>
     </div>
     <%= image_tag "raptor.png", :id => "elRaptor", :style => "display:none" %>
     <%= javascript_include_tag 'libs/canvas_scroll' %>
