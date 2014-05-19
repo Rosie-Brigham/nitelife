@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "epic@niteLife.com"
+  default from: "zcwcg03+nitelife@live.ucl.ac.uk"
 
   def welcome_email(user)
     @user = user
