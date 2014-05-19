@@ -10,11 +10,7 @@ FactoryGirl.define do
     email 'barbican@barbican.co.uk'
     date { Date.tomorrow }
     time '7:30pm'
-    lastfm_id '1'
-  end
-
-  factory :same_event, parent: :event do
-    lastfm_id '1'
+    sequence(:lastfm_id) {|n| n }
   end
 
   factory :different_lastfm_id_event, parent: :event do

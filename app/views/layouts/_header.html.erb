@@ -2,7 +2,7 @@
       <div class="title">NiteLife</div>
         <canvas id="canvas" width="1400" height="200">
         </canvas>
-        <% javascript_include_tag 'canvas_scroll.js' %>
+
     </div>
       
     <div class="navbar">
@@ -25,7 +25,6 @@
                 <!-- <li class="sb-close">Go away stuff!!!</li>          -->
               <% end %> 
             </ul>
-            <form class="navbar-form navbar-right" role="search">
               <ul class="nav navbar-nav">
                 <li><%= link_to 'Home', events_path %></a></li>
                 <% if user_signed_in? %>
@@ -34,13 +33,12 @@
                   <li><%= link_to('Login', new_user_session_path)  %></li>
                 <% end %> 
               </ul>
-              <div class="form-group">
-                <%=form_tag events_path, :method => 'get' do %>
-                <%= text_field_tag(:search, params[:search], class: 'form-control') %>
-              </div>
-                <%= submit_tag("Search", :name => nil, class: "btn") %>
-                <% end %>
-            </form>
+              <%=form_tag events_path, :method => 'get', class: "navbar-form navbar-right", role: "search" do %>
+                <div class="form-group">
+                  <%= text_field_tag(:search, params[:search], class: 'form-control') %>
+                  <%= submit_tag("Search", :name => nil, class: "btn") %>
+                </div>
+              <% end %>
           </div><!-- /.navbar-collapse -->
         </div> 
       </nav> 
