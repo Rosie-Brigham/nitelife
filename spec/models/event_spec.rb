@@ -28,23 +28,22 @@ describe Event do
     end    
 
     it 'cannot save a date in the past' do
-      subject {FactoryGirl.create(:out_of_date_event)}
-      subject.should have(1).error_on(:time)
+      event = FactoryGirl.build(:out_of_date_event)
+      event.should have(1).error_on(:date)
     end
 
-    it
+    it 'adds http:// to a url if missing before validations' do
+      event = FactoryGirl.build(:event, url: 'www.ilovefwd.com')
+      event.valid?
+      event.url.should eq 'http://www.ilovefwd.com'
+    end
 
   end
 
   describe 'unquie validations' do
-
-    before do
-      same_event
-      subject      
-    end
      
-    let(:same_event) {FactoryGirl.create(:same_event)}
-    subject {FactoryGirl.build(:event)}
+    let(:existing_event) { FactoryGirl.create(:event) }
+    subject { FactoryGirl.build(:event, lastfm_id: existing_event.lastfm_id) }
 
     it 'cannot save the same event twice' do
       subject.should have(1).errors_on(:lastfm_id)
