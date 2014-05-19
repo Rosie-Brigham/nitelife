@@ -132,8 +132,28 @@ body {
   position: absolute;
   left: 0;
   z-index: -99;
-  
+}
 
+.description {
+  width: 40%;
+  margin-left: 30%;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  background-color: #A3BADB;
+  border-radius: 3px;
+  margin-top: 34px;
+  color: #0A0021;
+}
+
+p#desc {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.quote {
+  font-family: -webkit-body;
+  color: #600046;
+  font-size: larger;
 }
 
 .show-box {
