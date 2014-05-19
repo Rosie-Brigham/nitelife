@@ -61,6 +61,19 @@ body {
   text-shadow: none !important;
 }
 
+input.logot-btn {
+  webkit-appearance: menulist !important;
+  background-color: inherit;
+  border: none;
+  color: #C0C7F2;
+  position: center;
+  padding-top: 28%;
+}
+
+input.logot-btn:hover {
+  color: #AD1283;
+}
+
 .navbar-default .navbar-nav>li>a:hover {
   color: #AD1283 !important;
 }
@@ -198,6 +211,10 @@ input.btn.btn-large.btn-primary {
   border-color: white;
   text-align: right;}
 
+.btn-primary {
+  background-image: none !important;
+
+}
 
 .footer {
   color: #ECEEF7;
