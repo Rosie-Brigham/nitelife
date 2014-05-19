@@ -20,14 +20,14 @@ NiteLife::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   config.action_mailer.default_url_options = { :host => "http://www.http://theres-alot-of-nitelife.herokuapp.com/events" }
-  ActionMailer::Base.smtp_settings = {
-  :address              => 'smtp.gmail.com',
-  :port                 => 587,
-  :domain               => "example.com",
-  :user_name            => ENV['GMAIL_USER_NAME']
-  :password             => ENV['GMAIL_PASSWORD']
-  :authentication       => 'plain',
-  :enable_starttls_auto => true  }
+  # ActionMailer::Base.smtp_settings = {
+  # :address              => 'smtp.gmail.com',
+  # :port                 => 587,
+  # :domain               => "example.com",
+  # :user_name            => ENV['GMAIL_USER_NAME']
+  # :password             => ENV['GMAIL_PASSWORD']
+  # :authentication       => 'plain',
+  # :enable_starttls_auto => true  }
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets = true
 
