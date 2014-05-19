@@ -13,7 +13,7 @@
       <div id='selected-event-info'>
         <h3><%= event.artist.name %></h3>
         <p><%= event.venue %></p>
-        <p><%= event.date %> - <%= event.time %></p>
+        <p><%= event.date.strftime("%m/%d/%Y") %> - <%= event.time.strftime("%I:%M%p") %></p>
       </div>
   </div>
   <div class='remove-event confirmable'>
