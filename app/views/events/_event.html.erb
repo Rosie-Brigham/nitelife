@@ -12,11 +12,6 @@
       <h3><%= event.artist.name %></h3>
       <p><%= event.venue %></p>
       <p><%= event.date.strftime("%m/%d/%Y") %></p>
-      <div class='remove-event-preview confirmable'>
-        <p>Remove Event</p>
-        <%= button_to('Remove', event_path(event), class: 'btn btn-large btn-primary', method: :delete, data: {confirm: 'Are you sure?' })%>
-<!--         <p class='are_you_sure'><em>Are you sure?</em></p> -->
-      </div>
     </div>
   </div>  
 </div>

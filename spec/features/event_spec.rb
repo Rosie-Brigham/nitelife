@@ -29,7 +29,7 @@ feature "Events" do
 
     scenario "when editing a event" do
       visit "/events/#{event.id}"
-      click_link 'Edit event'
+      click_link 'Edit'
       fill_in "Name", :with => "Labyrinth"
       click_button 'Update' 
       page.should have_content "Labyrinth"
@@ -37,7 +37,7 @@ feature "Events" do
     
     scenario "when deleting a event" do
       visit "/events/#{event.id}"
-      click_button 'Delete Event'
+      click_button 'Delete'
       expect(page).to have_text("That event has been deleted")
     end
   end
