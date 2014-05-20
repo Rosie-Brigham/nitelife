@@ -36,7 +36,7 @@ $(window).load(function() {
       //Append Raptor and Style
       var foot = $('#python').css({
         "position":"fixed",
-        "bottom": "800px",
+        "bottom": "8000px",
         "right" : "500px",
         "display" : "block"
       })

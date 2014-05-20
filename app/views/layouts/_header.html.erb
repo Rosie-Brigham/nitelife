@@ -1,6 +1,7 @@
 <div class="header" style="font-family: 'Cabin', sans-serif">
   <div class="title">NiteLife</div>
     <canvas id="canvas" width="1400" height="200">
+      <%= image_tag "canvas_image3.jpg" %>
     </canvas>
 </div>
 <div class="navbar">
@@ -20,9 +21,8 @@
           <% if user_signed_in? %>
             <li class="sb-toggle-left">My Stuff</li>
           <% end %> 
-        </ul>
-        <ul class="nav navbar-nav">
-          <li><%= link_to 'Home', events_path %></a></li>
+        
+          <li><%= link_to 'Home', events_path %></li>
           <% if user_signed_in? %>
             <li><%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "logot-btn") %></li>
           <% else %>
