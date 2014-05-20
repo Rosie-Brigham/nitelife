@@ -19,7 +19,7 @@ NiteLife::Application.configure do
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
   # config.action_dispatch.rack_cache = true
 
-  config.action_mailer.default_url_options = { :host => "http://theres-alot-of-nitelife.herokuapp.com/events" }
+  config.action_mailer.default_url_options = { :host => "http://theres-alot-of-nitelife.herokuapp.com" }
   ActionMailer::Base.smtp_settings = {
     :port           => '25',
     :address        => ENV['POSTMARK_SMTP_SERVER'],
