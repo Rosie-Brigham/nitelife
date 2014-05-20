@@ -9,7 +9,9 @@
       An event you expressed interest in is happening tomorrow. Miss it, miss out!
     </p>
     <p>
+      <%= @event.name %>
       <%= @event.artist.name %>
+      <%= @event.venue %>
     </p>
     <p>
       To login to the site, just follow this link: <%= @url %>.

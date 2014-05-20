@@ -7,7 +7,10 @@ let(:event) {FactoryGirl.create(:event, user: user)}
   
 
   describe "when not logged in" do
-    it "does stuff"
+    it "has an index action, to show all events" do
+      get :index
+      response.should be_ok
+    end  
   end
 
   describe "when logged in" do
