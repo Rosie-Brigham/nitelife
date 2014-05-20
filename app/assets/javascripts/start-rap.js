@@ -1,3 +1,3 @@
-     $(window).load(function() {
-          $('#buttonx').raptorize();
-     });
+$(window).load(function() {
+    $('#buttonx').raptorize();
+});

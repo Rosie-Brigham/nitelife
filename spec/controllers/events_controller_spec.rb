@@ -85,7 +85,6 @@ let(:event) {FactoryGirl.create(:event, user: user)}
           post :create, invalid_params
           response.should render_template(:new)
         end
-
       end
     end
 
@@ -97,7 +96,6 @@ let(:event) {FactoryGirl.create(:event, user: user)}
       it 'does not let you edit events that are not yours' do
           get :edit, id: different_event.id
           response.should redirect_to event_path(different_event)
-
       end
     end
 

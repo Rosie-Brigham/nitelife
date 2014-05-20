@@ -38,9 +38,5 @@ feature 'Select Events' do
     end
 
   end
-
-
-
-
-  
+ 
 end

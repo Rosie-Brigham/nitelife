@@ -11,9 +11,7 @@ before_action :authenticate_user!, except:[:index, :show, :homepage]
     @event.user_id = current_user.id
       if @event.valid?
         @event.save
-        UserMailer.welcome_email(current_user).deliver
-
-      # format.json { render json: current_user, status: :created, location: current_user }
+        NewEventsMailer.confirmation_email(current_user).deliver
         redirect_to @event, notice: 'Event was successfully created.'
       else
         render :new
@@ -41,7 +39,6 @@ before_action :authenticate_user!, except:[:index, :show, :homepage]
 
   def destroy
     @event = Event.find(params[:id])
-
     if current_user.admin || current_user.id == @event.user_id
       @event.destroy
       redirect_to events_path, notice: "That event has been deleted"

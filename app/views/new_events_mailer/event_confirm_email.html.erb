@@ -6,11 +6,12 @@
   <body>
     <h1>Welcome to Nitelife, <%= @user.email %></h1>
     <p>
-      You have successfully signed up to Nitelife<br>
+      You have successfully registered a new event<br>
+      <%= @event.name %>
     </p>
     <p>
-      To login to the site, just follow this link: <%= @url %>.
+      To login to the site and veiw this event, just follow this link: <%= @url %>.
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>Here you can log in and edit your event</p>
   </body>
 </html>
