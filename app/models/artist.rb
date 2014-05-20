@@ -1,6 +1,6 @@
 class Artist < ActiveRecord::Base
   has_many :events
-  has_many :selected_artists
+  has_many :selected_artists, dependent: :destroy
 
 
   def self.search(search)

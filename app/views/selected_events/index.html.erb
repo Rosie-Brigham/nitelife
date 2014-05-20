@@ -1,7 +1,7 @@
 <div class="description">
 	<h3>Upcoming Events</h3>
-	<p id="desc">On this page you can view all the events you have selected, </p>
-	<p id="desc">we will send you an reminder on the day to ensure you don't miss out!</p>
+	<p id="desc">On this page you can view all the events you have selected, <br>
+	we will send you an reminder on the day to ensure you don't miss out! </p>
 	<div class="quote">
 		<p><em>...And the night shall be <strong>filled with music</strong>,</p> 
 		<p>And the cares, that infest the day,</p>
@@ -15,7 +15,7 @@
 
 <% unless current_user.interested_events.any?  %>
   <div class="warning">
-    <h4>Oh no! It seems you dont have any selected events, go and find some!</h4>
+     <h4>Oh no! It seems you dont have any selected events, go and find some!</h4>
   </div>
 <% else %>
   <% current_user.selected_events.each do |selected_event| %>

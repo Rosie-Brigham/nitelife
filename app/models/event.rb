@@ -4,6 +4,7 @@ class Event < ActiveRecord::Base
   belongs_to :user
   belongs_to :artist
 
+  has_many :selected_events, dependent: :destroy
 
   before_validation :smart_add_url_protocol
   validates :name, presence: true
