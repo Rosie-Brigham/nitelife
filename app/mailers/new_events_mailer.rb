@@ -3,7 +3,6 @@ class NewEventsMailer < ActionMailer::Base
 
   def confirmation_email(user)
     @user = user
-    @event = user.event.last
     @url  = 'http://theres-alot-of-nitelife.herokuapp.com'
     mail(to: @user.email, subject: 'Welcome to NiteLife')
   end
