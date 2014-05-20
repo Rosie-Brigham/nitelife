@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 every 1.day, :at => '10.00 am' do
-  runner 'SelectedEvent.date_check'
+  runner 'SelectedEvent.send_reminder_emails'
           # if it is
           #   send an email
           # end
