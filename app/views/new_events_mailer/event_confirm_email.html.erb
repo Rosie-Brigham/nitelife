@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Nitelife, <%= @user.email %></h1>
+    <p>
+      You have successfully registered a new event<br>
+      <%= @event.name %>
+    </p>
+    <p>
+      To login to the site and veiw this event, just follow this link: <%= @url %>.
+    </p>
+    <p>Here you can log in and edit your event</p>
+  </body>
+</html>
