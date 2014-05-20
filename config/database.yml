@@ -23,6 +23,14 @@ test:
   password: 
   host: localhost
 
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: nitelife_production
+  username: postgres
+  password: 
+  host: localhost
+
   # adapter: sqlite3
   # database: db/production.sqlite3
   # pool: 5

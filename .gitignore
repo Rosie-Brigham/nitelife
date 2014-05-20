@@ -16,6 +16,6 @@
 /tmp
 
 .DS_Store
-
+.env
 # Ignore uploaded images.
 /public/system/**/*

@@ -1,5 +1,5 @@
 class SelectedEventMailer < ActionMailer::Base
-  default from: "epic@niteLife.com"
+  default from: "zcwcg03+nitelife@live.ucl.ac.uk"
 
   def event_alert(selected_event)
     @url  = 'http://ourfutureurl.com/login'
