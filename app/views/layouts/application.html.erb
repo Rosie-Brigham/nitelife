@@ -1,25 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>NiteLife</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-</head>
-
-
+  <head>
+    <title>NiteLife</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+      <%= stylesheet_link_tag    "application", media: "all" %>
+      <%= javascript_include_tag "application" %>
+      <%= csrf_meta_tags %>
+  </head>
   <body>
     
     <%= render 'layouts/header' %>
@@ -35,10 +25,15 @@
     <% end %>
 
     <%= yield %>
+    <div id="message"></div>
+<%= image_tag "python_foot.png", :id => "python", :style => "display:none" %>
+              
+
 
     <div class="footer">
-      <p><a href="#" id="buttonx">NiteLife</a></p>
+      <p><a href="#" id="buttonx">NiteLife</a><%= image_tag('note.png', :alt => 'banana logo', :class => 'banana') %></p>
     </div>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <%= image_tag "raptor.png", :id => "elRaptor", :style => "display:none" %>
     <%= javascript_include_tag 'libs/canvas_scroll' %>
   </body>

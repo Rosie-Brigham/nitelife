@@ -9,6 +9,7 @@
   margin: 0px;
   color:#ECEEF7
 }
+
 body {
     text-align: center;
     padding: 0px;
@@ -61,6 +62,19 @@ body {
   text-shadow: none !important;
 }
 
+input.logot-btn {
+  webkit-appearance: menulist !important;
+  background-color: inherit;
+  border: none;
+  color: #C0C7F2;
+  position: center;
+  padding-top: 28%;
+}
+
+input.logot-btn:hover {
+  color: #AD1283;
+}
+
 .navbar-default .navbar-nav>li>a:hover {
   color: #AD1283 !important;
 }
@@ -107,6 +121,13 @@ body {
   top:60px;
 }
 
+.remove-event-preview {
+  color: #100033;
+  position: absolute;
+  left:700px;
+  top:0px;
+}
+
 .event-name a {
   z-index:100;
   color: #0A0021;
@@ -125,6 +146,7 @@ body {
 .are_you_sure {
   display: none;
 }
+
 .event-photo-large img {
   width: 100%;
   height: auto;
@@ -193,11 +215,15 @@ input.btn.btn-large.btn-primary {
   border-color: black}
 
 .btn {
-  font-size: 20px;
+
   background-color: #990066 !important;
   border-color: white;
   text-align: right;}
 
+.btn-primary {
+  background-image: none !important;
+
+}
 
 .footer {
   color: #ECEEF7;

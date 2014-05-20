@@ -1,11 +1,11 @@
-<div class="sb-slidebar sb-left">
-  <ul class="sidebar">
+<div id="sidebar" class="">
+  <ul>
     <% if user_signed_in? %>
       <li><%= link_to 'Your Created Events', user_events_path %></li>
       <li><%= link_to 'Upcoming Events', selected_events_path %></li>
       <li><%= link_to 'Selected Artist Events', selected_artists_path %></li>
     <% else %>
-      <div class='note'>How did you get this open? naught developer!</div>
+      <div class='note'>How did you get this open? naughty developer!</div>
     <% end %> 
   </ul>
 </div>
@@ -16,6 +16,8 @@
 <script>
   (function($) {
     $(document).ready(function() {
+      $("#sidebar").addClass("sb-slidebar sb-left");
+      $("#sidebar ul").addClass("sidebar");
       $.slidebars();
     });
   }) (jQuery);
