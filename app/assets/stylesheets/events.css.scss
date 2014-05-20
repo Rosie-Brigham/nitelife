@@ -277,12 +277,22 @@ li {
   height: 170px;
 }
 
+@media screen and (max-width: 767px) {
+  #events-reposition {
+    padding-top: 230px;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .title {
     font-size: 150px;
   }
   #canvas {
     width: 400px;
+  }
+
+  #events-reposition {
+    padding-top: 230px;
   }
 
  }
