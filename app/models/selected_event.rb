@@ -6,7 +6,7 @@ class SelectedEvent < ActiveRecord::Base
   def self.send_reminder_emails
     todays_reminders = check_events
     todays_reminders.each do |selected_event|
-    selected_event.deliver_reminder
+      selected_event.deliver_reminder
     end
   end
 

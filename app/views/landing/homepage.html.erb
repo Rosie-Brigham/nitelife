@@ -1,1 +1,50 @@
- 
+<div class="slide story" id="slide-1" data-slide="1">
+    <div class="container">
+      <div id="home-row-1" class="row clearfix">
+        <div class="col-12">
+          <h1 class="font-semibold">
+            <strong>Welcome</strong> to your <span class="font-thin">NightLife</span></h1>
+          <br>
+          <br>
+        </div><!-- /col-12 -->
+      </div><!-- /row -->
+    </div><!-- /container -->
+  </div><!-- /slide1 -->
+
+  <!-- === Slide 5 === -->
+  <div class="slide story" id="slide-5" data-slide="5">
+    <div class="container">
+      <div class="row title-row">
+        <h2 class="font-thin">Never miss <span class="font-semibold">a great night out again</span></h2>
+        </div>
+        <div class="row content-row">
+      <div class="col-sm-1 hidden-sm">&nbsp;</div>
+        <ul>
+          <li>
+            <div class="col-12 col-sm-2">
+              <p><i class="icon icon-bolt"><%= image_tag "treble_clef.png" %> </i></p>
+              <h2 class="font-thin">Register<br><span class="font-semibold" >Your Events</span></h2>
+              <h4 class="font-thin">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h4>
+            </div>
+          </li>
+          <li>
+            <div class="col-12 col-sm-2">
+              <p><i class="icon icon-cog"><%= image_tag "quaver.png" %></i></p>
+              <h2 class="font-thin">Follow<br><span class="font-semibold">Great Artists</span></h2>
+              <h4 class="font-thin">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h4>
+            </div>
+          </li>
+          <li>
+            <div class="col-12 col-sm-2">
+              <p><i class="icon icon-cloud"><%= image_tag "bass.png" %></i></p>
+              <h2 class="font-thin">Don't<br><span class="font-semibold">Miss Out</span></h2>
+              <h4 class="font-thin">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h4>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+          <%= button_to('Enter', events_path, class: 'btn btn-large btn-primary', method: "get") %>
+    </div><!-- /container -->
+  </div><!-- /slide5 --> 
