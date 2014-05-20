@@ -58,7 +58,7 @@ $(window).load(function() {
               "right" : offset
             }, 2200, function() {
               foot = $('#python').css({
-                "bottom": "-700px",
+                "bottom": "8000px",
                 "right" : "0"
               })
               locked = false;

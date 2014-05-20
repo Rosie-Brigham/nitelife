@@ -12,11 +12,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-  # validates :password, :length => {:minimum => 6}, :confirmation => true
-
-  
-
   def artist_events
     self.artists.includes(:events).collect(&:events)
 
