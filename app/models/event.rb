@@ -29,7 +29,7 @@ class Event < ActiveRecord::Base
 
   def self.search(search)
     if search
-      joins(:artist).where(['events.name LIKE ? OR events.genre LIKE ? OR events.venue LIKE ? OR artists.name LIKE ?', "%#{search}%" , "%#{search}%" , "%#{search}%", "%#{search}%"] )
+      joins(:artist).where(['events.name ILIKE ? OR events.genre ILIKE ? OR events.venue ILIKE ? OR artists.name ILIKE ?', "%#{search}%" , "%#{search}%" , "%#{search}%", "%#{search}%"] )
     else
       all.latest
     end
