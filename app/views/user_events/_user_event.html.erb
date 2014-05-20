@@ -1,0 +1,20 @@
+<div class="event-box">
+  <div class="event-photo">
+    <% if event.photo_url %>
+      <img src="<%= event.photo_url %>" >
+    <% else %>
+      <%= image_tag event.photo.url(:strip) %>
+    <% end %>
+  </div>
+  <div class="event-name">
+    <h2 id='fe_text'><%= link_to event.name, event_path(event) %></h2>
+    <div id='event-info'>
+      <h3><%= event.artist.name %></h3>
+      <p><%= event.venue %></p>
+      <p><%= event.date.strftime("%m/%d/%Y") %></p>
+    </div>
+    <div class='remove-event-preview confirmable'>
+      <%= button_to('Remove', event_path(event), class: 'btn btn-large btn-primary', method: :delete, data: {confirm: 'Are you sure?' })%>
+    </div>
+  </div>  
+</div>
