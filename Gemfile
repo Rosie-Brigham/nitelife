@@ -30,6 +30,8 @@ gem 'whenever', :require => false
 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
+gem 'aws-sdk'
+
 gem 'timecop'
 
 gem 'nokogiri'
