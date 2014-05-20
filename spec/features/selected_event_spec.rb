@@ -2,6 +2,13 @@ require 'spec_helper'
 
 feature 'Select Events' do 
 
+  scenario "should have a search function" do
+    event = FactoryGirl.create(:event)
+    visit '/selected_events'
+    fill_in "search", :with => 'big'
+    page.should have_content 'big night'
+  end
+
   context 'when logged in' do
     let(:user) {FactoryGirl.create(:user)}
     let(:event) {FactoryGirl.create(:event, user: user)}

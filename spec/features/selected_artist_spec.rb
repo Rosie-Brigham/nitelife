@@ -6,7 +6,6 @@ feature SelectedArtist do
     let(:user) {FactoryGirl.create(:user)}
     let(:artist) {FactoryGirl.create(:artist)}
     let(:event) {FactoryGirl.create(:event, artist: artist)}
-    # let!(:selected_artist) {FactoryGirl.create(:selected_artist, user: user)}
 
   
     before do
@@ -23,6 +22,14 @@ feature SelectedArtist do
         expect(page).to have_text('Jeff')
       end
 
+    end
+  end
+
+  context 'when not logged in' do
+
+    scenario 'I should be redirected if I try to get to the selected artist path' do
+      visit '/selected_artists'
+      expect(page).to have_text("naughty developer")
     end
   end
 end
