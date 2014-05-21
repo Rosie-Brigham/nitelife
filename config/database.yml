@@ -36,3 +36,11 @@ production:
   # pool: 5
   # timeout: 5000
 
+# needs to create a CI version in for when in jenkins
+# it has no username
+jenkins:
+  adapter: postgresql
+  encoding: unicode
+  database: nitelife_jenkins 
+  host: localhost
+
